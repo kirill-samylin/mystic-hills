@@ -171,3 +171,7 @@ button{font-family:inherit;cursor:pointer}
 .phone .cover__off{top:12px;right:12px;height:38px;font-size:14px;padding:0 12px}
 .live .cover{display:none}
 .live .cover__off{display:inline-flex;align-items:center}
+
+/* телефон и планшет: слайды только для просмотра */
+.touch .page{pointer-events:none}
+.touch .page .slide{cursor:default}

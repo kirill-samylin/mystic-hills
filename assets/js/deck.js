@@ -5,6 +5,10 @@
   const $ = s => document.querySelector(s);
   const demo = $('#demo'), ov = $('#overview'), notes = $('#notes');
   const doc = $('#doc');
+  // Телефон или планшет: слайды только для просмотра, кликать внутри них нельзя.
+  // Прототип на таких устройствах открывается кнопкой «Демо» или на demo.html.
+  const touch = window.matchMedia('(hover: none) and (pointer: coarse)').matches || (navigator.maxTouchPoints > 0 && window.innerWidth < 1024);
+  if (touch) document.body.classList.add('touch');
   const slides = Array.from(doc.querySelectorAll('.slide'));
   const N = slides.length;
   let cur = -1;
@@ -38,7 +42,7 @@
   let lastScroll = 0;
   window.addEventListener('scroll', () => { lastScroll = Date.now(); }, { passive: true });
   doc.querySelectorAll('.frame, .phone').forEach(box => {
-    if (!box.querySelector('iframe')) return;
+    if (!box.querySelector('iframe') || touch) return;
     const c = document.createElement('div'); c.className = 'cover';
     c.innerHTML = '<button type="button" class="cover__btn">Попробовать прототип</button>';
     c.querySelector('button').addEventListener('click', e => { e.stopPropagation(); if (Date.now() - lastScroll < 350) return; box.classList.add('live'); });
