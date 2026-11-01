@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&family=Manrope:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/css/deck.css?v=10">
+<link rel="stylesheet" href="assets/css/deck.css?v=11">
 </head>
 <body>
 
@@ -22,7 +22,7 @@
 
     <!-- 1 -->
     <section class="slide slide--cover" data-label="Обложка" data-notes="Редизайн сайта бронирования. Сравниваем текущий сайт и новый прототип, затем — преимущества и открытые вопросы.">
-      <img src="assets/img/hero.jpg" alt="" class="cover__img">
+      <img src="assets/img/hero-s.jpg" srcset="assets/img/hero-s.jpg 900w, assets/img/hero.jpg 1680w" sizes="100vw" alt="" class="cover__img">
       <div class="cover__shade"></div>
       <div class="cover__in">
         <div class="eyebrow-xl eyebrow-xl--acc">Mystic Hills · ноябрь 2026</div>
@@ -39,7 +39,7 @@
       <div class="col col--40">
         <div class="eyebrow-xl">Текущий сайт</div>
         <h2 class="t2 t2--lg">Что мешает гостю дойти до оплаты</h2>
-        <div class="frame frame--fixed"><img src="assets/img/old/old-prozhivanie.jpg" alt="Текущий каталог" class="shot" style="height:100%;object-position:0 6%"></div>
+        <div class="frame frame--fixed"><img src="assets/img/old/crop-0-s.jpg" srcset="assets/img/old/crop-0-s.jpg 600w, assets/img/old/crop-0.jpg 1200w" sizes="(max-width:1023px) 45vw, 620px" alt="Текущий каталог" class="shot" style="height:100%" loading="lazy" decoding="async"></div>
       </div>
       <ol class="nlist nlist--top">
         <li><span class="num">01</span><span>Бронирование вынесено на отдельную страницу с пустым виджетом Bnovo</span></li>
@@ -56,13 +56,13 @@
       <div class="two">
         <div class="col">
           <span class="pill pill--was">Было</span>
-          <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/old-index.jpg" alt="Текущая главная" class="shot"></div>
+          <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/crop-1-s.jpg" srcset="assets/img/old/crop-1-s.jpg 600w, assets/img/old/crop-1.jpg 1200w" sizes="(max-width:1023px) 45vw, 620px" alt="Текущая главная" class="shot" loading="lazy" decoding="async"></div>
         </div>
         <div class="col">
           <span class="pill pill--now">Стало</span>
           <div class="rel">
-            <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img class="shot-live web" src="assets/img/screens/home-w.jpg" alt="Новая главная" data-frame="demo.html" loading="lazy"></div>
-            <div class="phone phone--float"><img class="shot-live" src="assets/img/screens/home-p.jpg" alt="Новая главная, телефон" data-frame="demo.html" loading="lazy"></div>
+            <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img class="shot-live web" src="assets/img/screens/home-w-s.jpg" srcset="assets/img/screens/home-w-xs.jpg 640w, assets/img/screens/home-w-s.jpg 1280w, assets/img/screens/home-w.jpg 1920w" sizes="(max-width:1023px) 45vw, 620px" alt="Новая главная" data-frame="demo.html" loading="lazy" decoding="async"></div>
+            <div class="phone phone--float"><img class="shot-live" src="assets/img/screens/home-p-s.jpg" srcset="assets/img/screens/home-p-s.jpg 390w, assets/img/screens/home-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Новая главная, телефон" data-frame="demo.html" loading="lazy" decoding="async"></div>
           </div>
         </div>
       </div>
@@ -74,12 +74,12 @@
       <div class="two">
         <div class="col">
           <span class="pill pill--was">Было</span>
-          <div class="frame frame--560"><img src="assets/img/old/old-index.jpg" alt="Текущий поиск" class="shot" style="height:100%;object-position:0 10%"></div>
+          <div class="frame frame--560"><img src="assets/img/old/crop-2-s.jpg" srcset="assets/img/old/crop-2-s.jpg 600w, assets/img/old/crop-2.jpg 1200w" sizes="(max-width:1023px) 45vw, 620px" alt="Текущий поиск" class="shot" style="height:100%" loading="lazy" decoding="async"></div>
           <p class="note">Четыре поля и кнопка «Показать наличие». Даты по умолчанию — ближайшая ночь, гостей — один.</p>
         </div>
         <div class="col">
           <span class="pill pill--now">Стало</span>
-          <div class="frame frame--560"><img class="shot-live web web--900" src="assets/img/screens/home-w900.jpg" alt="Новый поиск" data-frame="demo.html" loading="lazy"></div>
+          <div class="frame frame--560"><img class="shot-live web web--900" src="assets/img/screens/home-w900-s.jpg" srcset="assets/img/screens/home-w900-xs.jpg 640w, assets/img/screens/home-w900-s.jpg 1280w, assets/img/screens/home-w900.jpg 1920w" sizes="(max-width:1023px) 45vw, 620px" alt="Новый поиск" data-frame="demo.html" loading="lazy" decoding="async"></div>
           <p class="note">Панель запоминает выбор: после дат карточки домиков показывают цену за весь период и занятость.</p>
         </div>
       </div>
@@ -91,13 +91,13 @@
       <div class="two">
         <div class="col">
           <span class="pill pill--was">Было</span>
-          <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/old-prozhivanie.jpg" alt="Текущий каталог" class="shot" style="object-position:0 4%"></div>
+          <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/crop-3-s.jpg" srcset="assets/img/old/crop-3-s.jpg 600w, assets/img/old/crop-3.jpg 1200w" sizes="(max-width:1023px) 45vw, 620px" alt="Текущий каталог" class="shot" loading="lazy" decoding="async"></div>
         </div>
         <div class="col">
           <span class="pill pill--now">Стало</span>
           <div class="rel">
-            <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img class="shot-live web" src="assets/img/screens/scroll-houses-w.jpg" alt="Новый каталог" data-frame="demo.html?scroll=houses" loading="lazy"></div>
-            <div class="phone phone--float"><img class="shot-live" src="assets/img/screens/scroll-houses-p.jpg" alt="Новый каталог, телефон" data-frame="demo.html?scroll=houses" loading="lazy"></div>
+            <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img class="shot-live web" src="assets/img/screens/scroll-houses-w-s.jpg" srcset="assets/img/screens/scroll-houses-w-xs.jpg 640w, assets/img/screens/scroll-houses-w-s.jpg 1280w, assets/img/screens/scroll-houses-w.jpg 1920w" sizes="(max-width:1023px) 45vw, 620px" alt="Новый каталог" data-frame="demo.html?scroll=houses" loading="lazy" decoding="async"></div>
+            <div class="phone phone--float"><img class="shot-live" src="assets/img/screens/scroll-houses-p-s.jpg" srcset="assets/img/screens/scroll-houses-p-s.jpg 390w, assets/img/screens/scroll-houses-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Новый каталог, телефон" data-frame="demo.html?scroll=houses" loading="lazy" decoding="async"></div>
           </div>
         </div>
       </div>
@@ -118,8 +118,8 @@
           <li>Для двоих / романтика</li>
         </ul>
       </div>
-      <div class="phone-wrap phone-wrap--pt"><div class="phone"><img class="shot-live" src="assets/img/screens/scroll-houses-p.jpg" alt="Быстрые фильтры" data-frame="demo.html?scroll=houses" loading="lazy"></div></div>
-      <div class="phone-wrap phone-wrap--pt"><div class="phone"><img class="shot-live" src="assets/img/screens/view-filters-p.jpg" alt="Панель фильтров" data-frame="demo.html?view=filters" loading="lazy"></div></div>
+      <div class="phone-wrap phone-wrap--pt"><div class="phone"><img class="shot-live" src="assets/img/screens/scroll-houses-p-s.jpg" srcset="assets/img/screens/scroll-houses-p-s.jpg 390w, assets/img/screens/scroll-houses-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Быстрые фильтры" data-frame="demo.html?scroll=houses" loading="lazy" decoding="async"></div></div>
+      <div class="phone-wrap phone-wrap--pt"><div class="phone"><img class="shot-live" src="assets/img/screens/view-filters-p-s.jpg" srcset="assets/img/screens/view-filters-p-s.jpg 390w, assets/img/screens/view-filters-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Панель фильтров" data-frame="demo.html?view=filters" loading="lazy" decoding="async"></div></div>
     </section>
 
     <!-- 7 -->
@@ -128,15 +128,15 @@
       <div class="grid-1-2p">
         <div class="col">
           <span class="pill pill--was">Было</span>
-          <div class="frame"><img src="assets/img/old/old-sfera.jpg" alt="Текущая страница Сферы" class="shot" style="height:100%"></div>
+          <div class="frame"><img src="assets/img/old/crop-4-s.jpg" srcset="assets/img/old/crop-4-s.jpg 600w, assets/img/old/crop-4.jpg 1200w" sizes="(max-width:1023px) 45vw, 620px" alt="Текущая страница Сферы" class="shot" style="height:100%" loading="lazy" decoding="async"></div>
         </div>
         <div class="col">
           <span class="pill pill--now">Стало</span>
-          <div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-house-house-sfera-p.jpg" alt="Сфера" data-frame="demo.html?view=house&amp;house=sfera" loading="lazy"></div></div>
+          <div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-house-house-sfera-p-s.jpg" srcset="assets/img/screens/view-house-house-sfera-p-s.jpg 390w, assets/img/screens/view-house-house-sfera-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Сфера" data-frame="demo.html?view=house&amp;house=sfera" loading="lazy" decoding="async"></div></div>
         </div>
         <div class="col">
           <span class="pill pill--ghost"></span>
-          <div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-house-house-lodzh-dates-1-p.jpg" alt="Лодж с датами" data-frame="demo.html?view=house&amp;house=lodzh&amp;dates=1" loading="lazy"></div></div>
+          <div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-house-house-lodzh-dates-1-p-s.jpg" srcset="assets/img/screens/view-house-house-lodzh-dates-1-p-s.jpg 390w, assets/img/screens/view-house-house-lodzh-dates-1-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Лодж с датами" data-frame="demo.html?view=house&amp;house=lodzh&amp;dates=1" loading="lazy" decoding="async"></div></div>
         </div>
       </div>
     </section>
@@ -154,15 +154,15 @@
           <li>Данные о занятости — из Bnovo после интеграции</li>
         </ul>
       </div>
-      <div class="phone-wrap phone-wrap--pt"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-0-house-sfera-kupel-p.jpg" alt="Шаг 1 — даты" data-frame="demo.html?view=booking&amp;step=0&amp;house=sfera-kupel" loading="lazy"></div></div>
-      <div class="phone-wrap phone-wrap--pt"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-1-dates-1-p.jpg" alt="Шаг 2 — домик" data-frame="demo.html?view=booking&amp;step=1&amp;dates=1" loading="lazy"></div></div>
+      <div class="phone-wrap phone-wrap--pt"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-0-house-sfera-kupel-p-s.jpg" srcset="assets/img/screens/view-booking-step-0-house-sfera-kupel-p-s.jpg 390w, assets/img/screens/view-booking-step-0-house-sfera-kupel-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Шаг 1 — даты" data-frame="demo.html?view=booking&amp;step=0&amp;house=sfera-kupel" loading="lazy" decoding="async"></div></div>
+      <div class="phone-wrap phone-wrap--pt"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-1-dates-1-p-s.jpg" srcset="assets/img/screens/view-booking-step-1-dates-1-p-s.jpg 390w, assets/img/screens/view-booking-step-1-dates-1-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Шаг 2 — домик" data-frame="demo.html?view=booking&amp;step=1&amp;dates=1" loading="lazy" decoding="async"></div></div>
     </section>
 
     <!-- 9 -->
     <section class="slide slide--pad slide--grid1-640" data-label="Бронирование: было" data-notes="Сейчас страница бронирования — заголовок, текст о тарифе и пустой виджет. Выбор домика, гостей и оплата происходят уже на стороне Bnovo.">
       <div class="col">
         <span class="pill pill--was">Было</span>
-        <div class="frame frame--800"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/old-booking.jpg" alt="Текущая страница бронирования" class="shot shot--764"></div>
+        <div class="frame frame--800"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/crop-5-s.jpg" srcset="assets/img/old/crop-5-s.jpg 600w, assets/img/old/crop-5.jpg 1200w" sizes="(max-width:1023px) 45vw, 620px" alt="Текущая страница бронирования" class="shot shot--764" loading="lazy" decoding="async"></div>
       </div>
       <div class="col col--36" style="padding-top:58px">
         <h2 class="t2">Бронирование: как сейчас</h2>
@@ -182,10 +182,10 @@
         <p class="lead lead--620">Даты · Домик · Гости · Дополнения · Оплата. Итоговая сумма пересчитывается на каждом шаге</p>
       </div>
       <div class="phones4">
-        <div class="col col--16"><div class="cap">Шаг 3 · Гости</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-2-house-sfera-kupel-dates-1-p.jpg" alt="Шаг 3 — гости" data-frame="demo.html?view=booking&amp;step=2&amp;house=sfera-kupel&amp;dates=1" loading="lazy"></div></div></div>
-        <div class="col col--16"><div class="cap">Шаг 4 · Дополнения</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-3-house-sfera-kupel-dates-1-extras-1-p.jpg" alt="Шаг 4 — дополнения" data-frame="demo.html?view=booking&amp;step=3&amp;house=sfera-kupel&amp;dates=1&amp;extras=1" loading="lazy"></div></div></div>
-        <div class="col col--16"><div class="cap">Шаг 5 · Оплата</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-4-house-sfera-kupel-dates-1-extras-1-name-1-p.jpg" alt="Шаг 5 — оплата" data-frame="demo.html?view=booking&amp;step=4&amp;house=sfera-kupel&amp;dates=1&amp;extras=1&amp;name=1" loading="lazy"></div></div></div>
-        <div class="col col--16"><div class="cap">Подтверждение</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-5-house-sfera-kupel-dates-1-extras-1-name-1-no-1-p.jpg" alt="Подтверждение" data-frame="demo.html?view=booking&amp;step=5&amp;house=sfera-kupel&amp;dates=1&amp;extras=1&amp;name=1&amp;no=1" loading="lazy"></div></div></div>
+        <div class="col col--16"><div class="cap">Шаг 3 · Гости</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-2-house-sfera-kupel-dates-1-p-s.jpg" srcset="assets/img/screens/view-booking-step-2-house-sfera-kupel-dates-1-p-s.jpg 390w, assets/img/screens/view-booking-step-2-house-sfera-kupel-dates-1-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Шаг 3 — гости" data-frame="demo.html?view=booking&amp;step=2&amp;house=sfera-kupel&amp;dates=1" loading="lazy" decoding="async"></div></div></div>
+        <div class="col col--16"><div class="cap">Шаг 4 · Дополнения</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-3-house-sfera-kupel-dates-1-extras-1-p-s.jpg" srcset="assets/img/screens/view-booking-step-3-house-sfera-kupel-dates-1-extras-1-p-s.jpg 390w, assets/img/screens/view-booking-step-3-house-sfera-kupel-dates-1-extras-1-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Шаг 4 — дополнения" data-frame="demo.html?view=booking&amp;step=3&amp;house=sfera-kupel&amp;dates=1&amp;extras=1" loading="lazy" decoding="async"></div></div></div>
+        <div class="col col--16"><div class="cap">Шаг 5 · Оплата</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-4-house-sfera-kupel-dates-1-extras-1-name-1-p-s.jpg" srcset="assets/img/screens/view-booking-step-4-house-sfera-kupel-dates-1-extras-1-name-1-p-s.jpg 390w, assets/img/screens/view-booking-step-4-house-sfera-kupel-dates-1-extras-1-name-1-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Шаг 5 — оплата" data-frame="demo.html?view=booking&amp;step=4&amp;house=sfera-kupel&amp;dates=1&amp;extras=1&amp;name=1" loading="lazy" decoding="async"></div></div></div>
+        <div class="col col--16"><div class="cap">Подтверждение</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-5-house-sfera-kupel-dates-1-extras-1-name-1-no-1-p-s.jpg" srcset="assets/img/screens/view-booking-step-5-house-sfera-kupel-dates-1-extras-1-name-1-no-1-p-s.jpg 390w, assets/img/screens/view-booking-step-5-house-sfera-kupel-dates-1-extras-1-name-1-no-1-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Подтверждение" data-frame="demo.html?view=booking&amp;step=5&amp;house=sfera-kupel&amp;dates=1&amp;extras=1&amp;name=1&amp;no=1" loading="lazy" decoding="async"></div></div></div>
       </div>
     </section>
 
@@ -205,15 +205,15 @@
         </div>
         <p class="note">Цены — с текущего сайта, уточняются перед запуском.</p>
       </div>
-      <div class="phone-wrap phone-wrap--pt"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-3-house-lodzh-dates-1-extras-1-p.jpg" alt="Дополнения" data-frame="demo.html?view=booking&amp;step=3&amp;house=lodzh&amp;dates=1&amp;extras=1" loading="lazy"></div></div>
+      <div class="phone-wrap phone-wrap--pt"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-3-house-lodzh-dates-1-extras-1-p-s.jpg" srcset="assets/img/screens/view-booking-step-3-house-lodzh-dates-1-extras-1-p-s.jpg 390w, assets/img/screens/view-booking-step-3-house-lodzh-dates-1-extras-1-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Дополнения" data-frame="demo.html?view=booking&amp;step=3&amp;house=lodzh&amp;dates=1&amp;extras=1" loading="lazy" decoding="async"></div></div>
     </section>
 
     <!-- 12 -->
     <section class="slide slide--pad" data-label="Баня" data-notes="Баня на старом сайте — страница правил без фото и цены. Теперь это раздел главной: фото, время, стоимость и кнопка в бронь.">
       <div class="head"><h2 class="t2">Баня на озере</h2><p class="lead">Фото, часы работы и цена на одном экране; правила — отдельной ссылкой</p></div>
       <div class="two">
-        <div class="col"><span class="pill pill--was">Было</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/old-banya.jpg" alt="Текущая страница бани" class="shot"></div></div>
-        <div class="col"><span class="pill pill--now">Стало</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img class="shot-live web" src="assets/img/screens/scroll-banya-w.jpg" alt="Баня" data-frame="demo.html?scroll=banya" loading="lazy"></div></div>
+        <div class="col"><span class="pill pill--was">Было</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/crop-6-s.jpg" srcset="assets/img/old/crop-6-s.jpg 600w, assets/img/old/crop-6.jpg 1200w" sizes="(max-width:1023px) 45vw, 620px" alt="Текущая страница бани" class="shot" loading="lazy" decoding="async"></div></div>
+        <div class="col"><span class="pill pill--now">Стало</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img class="shot-live web" src="assets/img/screens/scroll-banya-w-s.jpg" srcset="assets/img/screens/scroll-banya-w-xs.jpg 640w, assets/img/screens/scroll-banya-w-s.jpg 1280w, assets/img/screens/scroll-banya-w.jpg 1920w" sizes="(max-width:1023px) 45vw, 620px" alt="Баня" data-frame="demo.html?scroll=banya" loading="lazy" decoding="async"></div></div>
       </div>
     </section>
 
@@ -221,12 +221,12 @@
     <section class="slide slide--pad" data-label="Ресторан" data-notes="Ресторан: вместо длинной страницы с галереей — компактный блок с режимом, завтраками, доставкой в домик и ссылкой на меню.">
       <div class="head"><h2 class="t2">Ресторан</h2><p class="lead">Режим работы, завтраки и доставка в домик — цифрами, а не абзацами</p></div>
       <div class="two">
-        <div class="col"><span class="pill pill--was">Было</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/old-cafe.jpg" alt="Текущая страница ресторана" class="shot" style="object-position:0 12%"></div></div>
+        <div class="col"><span class="pill pill--was">Было</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/crop-7-s.jpg" srcset="assets/img/old/crop-7-s.jpg 600w, assets/img/old/crop-7.jpg 1200w" sizes="(max-width:1023px) 45vw, 620px" alt="Текущая страница ресторана" class="shot" loading="lazy" decoding="async"></div></div>
         <div class="col">
           <span class="pill pill--now">Стало</span>
           <div class="rel">
-            <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img class="shot-live web" src="assets/img/screens/scroll-cafe-w.jpg" alt="Ресторан" data-frame="demo.html?scroll=cafe" loading="lazy"></div>
-            <div class="phone phone--float"><img class="shot-live" src="assets/img/screens/scroll-cafe-p.jpg" alt="Ресторан, телефон" data-frame="demo.html?scroll=cafe" loading="lazy"></div>
+            <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img class="shot-live web" src="assets/img/screens/scroll-cafe-w-s.jpg" srcset="assets/img/screens/scroll-cafe-w-xs.jpg 640w, assets/img/screens/scroll-cafe-w-s.jpg 1280w, assets/img/screens/scroll-cafe-w.jpg 1920w" sizes="(max-width:1023px) 45vw, 620px" alt="Ресторан" data-frame="demo.html?scroll=cafe" loading="lazy" decoding="async"></div>
+            <div class="phone phone--float"><img class="shot-live" src="assets/img/screens/scroll-cafe-p-s.jpg" srcset="assets/img/screens/scroll-cafe-p-s.jpg 390w, assets/img/screens/scroll-cafe-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Ресторан, телефон" data-frame="demo.html?scroll=cafe" loading="lazy" decoding="async"></div>
           </div>
         </div>
       </div>
@@ -236,8 +236,8 @@
     <section class="slide slide--pad" data-label="Контакты" data-notes="Блок «Как добраться» на старом сайте повторяется на каждой странице вместе с реквизитами. Теперь — один раздел с маршрутом, телефонами и мессенджерами.">
       <div class="head"><h2 class="t2">Контакты и как добраться</h2><p class="lead">Маршрут, телефоны и мессенджеры в одном блоке; реквизиты — в подвале</p></div>
       <div class="two">
-        <div class="col"><span class="pill pill--was">Было</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/old-index.jpg" alt="Текущий блок контактов" class="shot" style="object-position:0 62%"></div></div>
-        <div class="col"><span class="pill pill--now">Стало</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img class="shot-live web" src="assets/img/screens/scroll-contacts-w.jpg" alt="Контакты" data-frame="demo.html?scroll=contacts" loading="lazy"></div></div>
+        <div class="col"><span class="pill pill--was">Было</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/crop-8-s.jpg" srcset="assets/img/old/crop-8-s.jpg 600w, assets/img/old/crop-8.jpg 1200w" sizes="(max-width:1023px) 45vw, 620px" alt="Текущий блок контактов" class="shot" loading="lazy" decoding="async"></div></div>
+        <div class="col"><span class="pill pill--now">Стало</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img class="shot-live web" src="assets/img/screens/scroll-contacts-w-s.jpg" srcset="assets/img/screens/scroll-contacts-w-xs.jpg 640w, assets/img/screens/scroll-contacts-w-s.jpg 1280w, assets/img/screens/scroll-contacts-w.jpg 1920w" sizes="(max-width:1023px) 45vw, 620px" alt="Контакты" data-frame="demo.html?scroll=contacts" loading="lazy" decoding="async"></div></div>
       </div>
     </section>
 
@@ -245,10 +245,10 @@
     <section class="slide slide--pad" data-label="Мобильная версия" data-notes="Весь путь гостя проходится на телефоне: главная, каталог, домик, оплата. Кнопки не меньше 44 пикселей, итог брони всегда внизу экрана.">
       <div class="head"><h2 class="t2">Мобильная версия как основа</h2><p class="lead lead--700">Весь путь от главной до оплаты проходится одной рукой</p></div>
       <div class="phones4">
-        <div class="col col--16"><div class="cap">Главная</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/home-p.jpg" alt="Главная" data-frame="demo.html" loading="lazy"></div></div></div>
-        <div class="col col--16"><div class="cap">Меню</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-menu-p.jpg" alt="Меню" data-frame="demo.html?view=menu" loading="lazy"></div></div></div>
-        <div class="col col--16"><div class="cap">Домик</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-house-house-dzen-dates-1-p.jpg" alt="Домик" data-frame="demo.html?view=house&amp;house=dzen&amp;dates=1" loading="lazy"></div></div></div>
-        <div class="col col--16"><div class="cap">Оплата</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-4-house-dzen-dates-1-name-1-p.jpg" alt="Оплата" data-frame="demo.html?view=booking&amp;step=4&amp;house=dzen&amp;dates=1&amp;name=1" loading="lazy"></div></div></div>
+        <div class="col col--16"><div class="cap">Главная</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/home-p-s.jpg" srcset="assets/img/screens/home-p-s.jpg 390w, assets/img/screens/home-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Главная" data-frame="demo.html" loading="lazy" decoding="async"></div></div></div>
+        <div class="col col--16"><div class="cap">Меню</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-menu-p-s.jpg" srcset="assets/img/screens/view-menu-p-s.jpg 390w, assets/img/screens/view-menu-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Меню" data-frame="demo.html?view=menu" loading="lazy" decoding="async"></div></div></div>
+        <div class="col col--16"><div class="cap">Домик</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-house-house-dzen-dates-1-p-s.jpg" srcset="assets/img/screens/view-house-house-dzen-dates-1-p-s.jpg 390w, assets/img/screens/view-house-house-dzen-dates-1-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Домик" data-frame="demo.html?view=house&amp;house=dzen&amp;dates=1" loading="lazy" decoding="async"></div></div></div>
+        <div class="col col--16"><div class="cap">Оплата</div><div class="phone-wrap"><div class="phone"><img class="shot-live" src="assets/img/screens/view-booking-step-4-house-dzen-dates-1-name-1-p-s.jpg" srcset="assets/img/screens/view-booking-step-4-house-dzen-dates-1-name-1-p-s.jpg 390w, assets/img/screens/view-booking-step-4-house-dzen-dates-1-name-1-p.jpg 585w" sizes="(max-width:1023px) 20vw, 330px" alt="Оплата" data-frame="demo.html?view=booking&amp;step=4&amp;house=dzen&amp;dates=1&amp;name=1" loading="lazy" decoding="async"></div></div></div>
       </div>
     </section>
 
@@ -338,6 +338,6 @@
 </div>
 
 
-<script src="assets/js/deck.js?v=10"></script>
+<script src="assets/js/deck.js?v=11"></script>
 </body>
 </html>
