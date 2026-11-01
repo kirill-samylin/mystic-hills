@@ -1,84 +1,93 @@
-/* Mystic Hills — движок презентации: масштабирование, навигация, обзор, заметки, демо-режим. */
+/* Mystic Hills — презентация в виде вертикального документа: слайды идут друг за другом,
+   листаются прокруткой, как страницы PDF. Плюс обзор, заметки, полный экран и демо-режим. */
 (function () {
   'use strict';
   const $ = s => document.querySelector(s);
-  const slides = Array.from(document.querySelectorAll('.stage > .slide'));
-  const demo = $('#demo'), ov = $('#overview');
+  const demo = $('#demo'), ov = $('#overview'), notes = $('#notes');
+  const doc = $('#doc');
+  const slides = Array.from(doc.querySelectorAll('.slide'));
   const N = slides.length;
   let cur = -1;
 
-  // ---------- масштаб ----------
-  const stage = $('#stage');
+  // ---------- страницы: каждый слайд в обёртке, масштаб под окно ----------
+  const pages = slides.map((s, i) => {
+    const p = document.createElement('div'); p.className = 'page'; p.id = 'p' + (i + 1); p.dataset.i = i;
+    s.parentNode.insertBefore(p, s); p.appendChild(s);
+    return p;
+  });
+  const GUT = () => (window.innerWidth < 720 ? 12 : 32);
   function fit() {
-    const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
-    stage.style.transform = 'scale(' + s + ')';
+    const s = Math.min((window.innerWidth - GUT() * 2) / 1920, (window.innerHeight - GUT() * 2) / 1080);
+    doc.style.setProperty('--s', s);
   }
-  window.addEventListener('resize', fit); fit();
+  window.addEventListener('resize', () => { fit(); scheduleSync(); }); fit();
 
-  // ---------- навигация ----------
-  function loadFrames(i) {
-    for (let k = Math.max(0, i - 1); k <= Math.min(N - 1, i + 1); k++) {
-      slides[k].querySelectorAll('iframe[data-src]').forEach(f => { f.src = f.dataset.src; f.removeAttribute('data-src'); });
-    }
-  }
-  function go(i, push) {
-    i = Math.max(0, Math.min(N - 1, i));
+  // ---------- ленивые айфреймы: грузим, когда страница близко к экрану ----------
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      en.target.querySelectorAll('iframe[data-src]').forEach(f => { f.src = f.dataset.src; f.removeAttribute('data-src'); });
+      io.unobserve(en.target);
+    });
+  }, { rootMargin: '120% 0px' });
+  pages.forEach(p => io.observe(p));
+
+  // ---------- плёнка над встроенными прототипами: прокрутка идёт по странице,
+  // клик включает взаимодействие с прототипом; при уходе страницы с экрана плёнка возвращается
+  doc.querySelectorAll('.frame, .phone').forEach(box => {
+    if (!box.querySelector('iframe')) return;
+    const c = document.createElement('div'); c.className = 'cover';
+    c.innerHTML = '<span>Нажмите, чтобы попробовать прототип</span>';
+    c.addEventListener('click', () => { box.classList.add('live'); });
+    box.appendChild(c);
+  });
+  const ioLive = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (!en.isIntersecting) en.target.querySelectorAll('.live').forEach(b => b.classList.remove('live')); });
+  }, { threshold: 0 });
+  pages.forEach(p => ioLive.observe(p));
+
+  // ---------- текущий слайд по положению прокрутки ----------
+  function setCur(i) {
     if (i === cur) return;
-    const dir = i > cur ? 'from-right' : 'from-left';
     cur = i;
-    slides.forEach((s, k) => { s.classList.toggle('active', k === i); s.classList.remove('from-right', 'from-left'); if (k === i) s.classList.add(dir); });
-    loadFrames(i);
     $('#cur').textContent = i + 1;
     $('#label').textContent = slides[i].dataset.label || '';
     $('#notes-text').textContent = slides[i].dataset.notes || '';
-    $('#progress').style.width = ((i + 1) / N * 100) + '%';
-    if (push !== false) history.replaceState(null, '', '#' + (i + 1));
+    history.replaceState(null, '', location.pathname + location.search + '#' + (i + 1));
     document.querySelectorAll('.thumb').forEach((t, k) => t.classList.toggle('on', k === i));
+  }
+  let raf = null;
+  function sync() {
+    raf = null;
+    const mid = window.scrollY + window.innerHeight / 2;
+    let best = 0, bd = Infinity;
+    pages.forEach((p, i) => { const c = p.offsetTop + p.offsetHeight / 2; const d = Math.abs(c - mid); if (d < bd) { bd = d; best = i; } });
+    setCur(best);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    $('#progress').style.width = (max > 0 ? Math.min(100, window.scrollY / max * 100) : 100) + '%';
+  }
+  function scheduleSync() { if (!raf) raf = requestAnimationFrame(sync); }
+  window.addEventListener('scroll', scheduleSync, { passive: true });
+
+  function go(i, instant) {
+    i = Math.max(0, Math.min(N - 1, i));
+    const top = pages[i].offsetTop - (window.innerHeight - pages[i].offsetHeight) / 2;
+    window.scrollTo({ top: Math.max(0, top), behavior: instant ? 'auto' : 'smooth' });
   }
   const next = () => go(cur + 1), prev = () => go(cur - 1);
   $('#total').textContent = N;
   $('#next').addEventListener('click', next);
   $('#prev').addEventListener('click', prev);
   const fromHash = () => { const n = parseInt(location.hash.slice(1), 10); return isNaN(n) ? 0 : n - 1; };
-  window.addEventListener('hashchange', () => go(fromHash(), false));
-
-  // ---------- свайпы: палец, мышь (перетаскивание) и трекпад ----------
-  const vp = $('#viewport');
-  let px = null, py = null;
-  const overlaysOpen = () => !demo.hidden || !ov.hidden;
-  vp.addEventListener('pointerdown', e => {
-    if (overlaysOpen() || e.button > 0 || e.target.closest('a,button,input,textarea,.hud,.notes')) return;
-    px = e.clientX; py = e.clientY;
-    try { vp.setPointerCapture(e.pointerId); } catch (err) {}
-  });
-  vp.addEventListener('dragstart', e => e.preventDefault());
-  vp.addEventListener('pointerup', e => {
-    if (px == null) return;
-    const dx = e.clientX - px, dy = e.clientY - py; px = null;
-    try { vp.releasePointerCapture(e.pointerId); } catch (err) {}
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) dx < 0 ? next() : prev();
-  });
-  vp.addEventListener('pointercancel', () => { px = null; });
-  // трекпад: горизонтальная прокрутка двумя пальцами
-  let wx = 0, wLock = false, wReset;
-  window.addEventListener('wheel', e => {
-    if (overlaysOpen() || e.target.closest('.notes')) return;
-    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
-    e.preventDefault();
-    if (wLock) return;
-    wx += e.deltaX;
-    clearTimeout(wReset); wReset = setTimeout(() => { wx = 0; }, 300);
-    if (Math.abs(wx) > 50) { wx < 0 ? prev() : next(); wx = 0; wLock = true; setTimeout(() => { wLock = false; }, 650); }
-  }, { passive: false });
+  window.addEventListener('hashchange', () => { const i = fromHash(); if (i !== cur) go(i); });
 
   // ---------- HUD: прячем при бездействии ----------
   const hud = $('#hud'); let idleT;
   function wake() { hud.classList.remove('idle'); clearTimeout(idleT); idleT = setTimeout(() => { if (!hud.matches(':hover')) hud.classList.add('idle'); }, 3500); }
-  ['mousemove', 'touchstart', 'keydown'].forEach(ev => window.addEventListener(ev, wake, { passive: true }));
+  ['mousemove', 'touchstart', 'keydown', 'scroll'].forEach(ev => window.addEventListener(ev, wake, { passive: true }));
   hud.addEventListener('mouseleave', wake); wake();
 
   // ---------- заметки ----------
-  const notes = $('#notes');
   const toggleNotes = () => { notes.hidden = !notes.hidden; };
   $('#notes-btn').addEventListener('click', toggleNotes);
 
@@ -103,17 +112,17 @@
       box.appendChild(clone);
       const cap = document.createElement('div'); cap.className = 'thumb__cap'; cap.innerHTML = '<b>' + (i + 1) + '</b>' + (s.dataset.label || '');
       b.appendChild(box); b.appendChild(cap);
-      b.addEventListener('click', () => { go(i); closeOverview(); });
+      b.addEventListener('click', () => { closeOverview(); go(i, true); });
       grid.appendChild(b);
     });
     scaleThumbs();
   }
   function scaleThumbs() {
-    grid.querySelectorAll('.thumb__box').forEach(box => { const s = box.clientWidth / 1920; const sl = box.firstChild; sl.style.transform = 'scale(' + s + ')'; });
+    grid.querySelectorAll('.thumb__box').forEach(box => { const s = box.clientWidth / 1920; box.firstChild.style.transform = 'scale(' + s + ')'; });
   }
   window.addEventListener('resize', () => { if (!ov.hidden) scaleThumbs(); });
-  function openOverview() { buildOverview(); ov.hidden = false; scaleThumbs(); }
-  function closeOverview() { ov.hidden = true; }
+  function openOverview() { buildOverview(); ov.hidden = false; document.body.classList.add('locked'); scaleThumbs(); }
+  function closeOverview() { ov.hidden = true; document.body.classList.remove('locked'); }
   $('#overview-btn').addEventListener('click', openOverview);
   $('#overview-close').addEventListener('click', closeOverview);
 
@@ -131,9 +140,9 @@
   }
   function openDemo() {
     if (!frame) { frame = document.createElement('iframe'); frame.title = 'Прототип'; frame.src = 'demo.html?embed=1'; dev.appendChild(frame); }
-    demo.hidden = false; layoutDemo();
+    demo.hidden = false; document.body.classList.add('locked'); layoutDemo();
   }
-  function closeDemo() { demo.hidden = true; }
+  function closeDemo() { demo.hidden = true; document.body.classList.remove('locked'); }
   document.addEventListener('click', e => { const b = e.target.closest('[data-demo]'); if (b) { e.preventDefault(); openDemo(); } });
   $('#demo-close').addEventListener('click', closeDemo);
   $('#demo-reload').addEventListener('click', () => { if (frame) frame.src = 'demo.html?embed=1'; });
@@ -153,8 +162,8 @@
     const k = e.key;
     if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || k === ' ' || k === 'Enter') { e.preventDefault(); next(); }
     else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); prev(); }
-    else if (k === 'Home') go(0);
-    else if (k === 'End') go(N - 1);
+    else if (k === 'Home') { e.preventDefault(); go(0); }
+    else if (k === 'End') { e.preventDefault(); go(N - 1); }
     else if (k === 'f' || k === 'F' || k === 'а') toggleFs();
     else if (k === 'd' || k === 'D' || k === 'в') openDemo();
     else if (k === 'n' || k === 'N' || k === 'т') toggleNotes();
@@ -162,11 +171,9 @@
     else if (k === 'Escape' && !notes.hidden) notes.hidden = true;
   });
 
-  // ---------- подсказка на телефоне ----------
-  const toast = $('#toast');
-  if (window.innerWidth < 700 && window.innerHeight > window.innerWidth && !sessionStorage.getItem('mh-toast')) toast.hidden = false;
-  $('#toast-close').addEventListener('click', () => { toast.hidden = true; try { sessionStorage.setItem('mh-toast', '1'); } catch (e) {} });
-  window.addEventListener('orientationchange', () => { toast.hidden = true; });
-
-  go(fromHash());
+  // ---------- старт ----------
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  const start = fromHash();
+  if (start > 0) go(start, true);
+  sync();
 })();

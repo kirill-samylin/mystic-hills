@@ -12,14 +12,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&family=Manrope:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/css/deck.css?v=3">
+<link rel="stylesheet" href="assets/css/deck.css?v=5">
 </head>
 <body>
 
 <div class="progress"><div class="progress__bar" id="progress"></div></div>
 
-<div class="viewport" id="viewport">
-  <div class="stage" id="stage">
+<div class="doc" id="doc">
 
     <!-- 1 -->
     <section class="slide slide--cover" data-label="Обложка" data-notes="Редизайн сайта бронирования. Сравниваем текущий сайт и новый прототип, затем — преимущества и открытые вопросы.">
@@ -30,7 +29,7 @@
         <h1 class="t1">Редизайн сайта бронирования</h1>
         <p class="cover__lead">Как было, как стало и что это даёт гостям и глэмпингу</p>
         <div class="cover__hint">
-          <span class="key">→</span> или свайп — листать <span class="sep">·</span> <span class="key">D</span> демо-режим <span class="sep">·</span> <span class="key">F</span> на весь экран
+          <span class="key">↓</span> листать прокруткой <span class="sep">·</span> <span class="key">D</span> демо-режим <span class="sep">·</span> <span class="key">F</span> на весь экран
         </div>
       </div>
     </section>
@@ -287,14 +286,13 @@
       </ol>
     </section>
 
-  </div>
 </div>
 
 <!-- панель управления -->
 <div class="hud" id="hud">
-  <button class="hud__btn" id="prev" title="Назад (←)">←</button>
+  <button class="hud__btn" id="prev" title="Предыдущий слайд (↑)">↑</button>
   <div class="hud__count"><span id="cur">1</span> / <span id="total">17</span></div>
-  <button class="hud__btn" id="next" title="Далее (→)">→</button>
+  <button class="hud__btn" id="next" title="Следующий слайд (↓)">↓</button>
   <span class="hud__label" id="label"></span>
   <span class="hud__sep"></span>
   <button class="hud__btn hud__btn--acc" id="demo-btn" data-demo title="Демо-режим (D)">Демо</button>
@@ -330,8 +328,7 @@
   <div class="demo__stage" id="demo-stage"><div class="demo__device" id="demo-device"></div></div>
 </div>
 
-<div class="toast" id="toast" hidden>Поверните телефон горизонтально — слайды станут крупнее. <button id="toast-close">Понятно</button></div>
 
-<script src="assets/js/deck.js?v=3"></script>
+<script src="assets/js/deck.js?v=5"></script>
 </body>
 </html>
