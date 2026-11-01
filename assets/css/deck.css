@@ -10,11 +10,17 @@ button{font-family:inherit;cursor:pointer}
 .progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:30;background:rgba(235,238,230,0.08)}
 .progress__bar{height:100%;background:var(--acc);width:0;transition:width .3s}
 
-.viewport{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+.slide img{-webkit-user-drag:none;user-drag:none}
+.viewport{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;touch-action:none;user-select:none;-webkit-user-select:none}
 .stage{position:relative;width:1920px;height:1080px;flex:none;transform-origin:center center;background:var(--slide);box-shadow:0 0 0 1px rgba(235,238,230,0.06),0 40px 120px rgba(0,0,0,0.6)}
 
 .slide{position:absolute;inset:0;width:1920px;height:1080px;background:var(--slide);color:var(--fg);overflow:hidden;opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
 .slide.active{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.active.from-right{animation:inR .4s cubic-bezier(.2,.7,.2,1)}
+.slide.active.from-left{animation:inL .4s cubic-bezier(.2,.7,.2,1)}
+@keyframes inR{from{transform:translateX(60px);opacity:0}to{transform:none;opacity:1}}
+@keyframes inL{from{transform:translateX(-60px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.slide.active.from-right,.slide.active.from-left{animation:none}}
 .slide--pad{padding:90px 110px 80px;display:flex;flex-direction:column;gap:36px}
 .slide--alt{background:var(--slide2)}
 

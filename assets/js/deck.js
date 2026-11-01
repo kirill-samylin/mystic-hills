@@ -3,6 +3,7 @@
   'use strict';
   const $ = s => document.querySelector(s);
   const slides = Array.from(document.querySelectorAll('.stage > .slide'));
+  const demo = $('#demo'), ov = $('#overview');
   const N = slides.length;
   let cur = -1;
 
@@ -23,8 +24,9 @@
   function go(i, push) {
     i = Math.max(0, Math.min(N - 1, i));
     if (i === cur) return;
+    const dir = i > cur ? 'from-right' : 'from-left';
     cur = i;
-    slides.forEach((s, k) => s.classList.toggle('active', k === i));
+    slides.forEach((s, k) => { s.classList.toggle('active', k === i); s.classList.remove('from-right', 'from-left'); if (k === i) s.classList.add(dir); });
     loadFrames(i);
     $('#cur').textContent = i + 1;
     $('#label').textContent = slides[i].dataset.label || '';
@@ -40,15 +42,34 @@
   const fromHash = () => { const n = parseInt(location.hash.slice(1), 10); return isNaN(n) ? 0 : n - 1; };
   window.addEventListener('hashchange', () => go(fromHash(), false));
 
-  // свайп по сцене (на iframe не реагирует — это их зона)
-  let tx = null, ty = null;
+  // ---------- свайпы: палец, мышь (перетаскивание) и трекпад ----------
   const vp = $('#viewport');
-  vp.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
-  vp.addEventListener('touchend', e => {
-    if (tx == null) return;
-    const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty; tx = null;
-    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) dx < 0 ? next() : prev();
-  }, { passive: true });
+  let px = null, py = null;
+  const overlaysOpen = () => !demo.hidden || !ov.hidden;
+  vp.addEventListener('pointerdown', e => {
+    if (overlaysOpen() || e.button > 0 || e.target.closest('a,button,input,textarea,.hud,.notes')) return;
+    px = e.clientX; py = e.clientY;
+    try { vp.setPointerCapture(e.pointerId); } catch (err) {}
+  });
+  vp.addEventListener('dragstart', e => e.preventDefault());
+  vp.addEventListener('pointerup', e => {
+    if (px == null) return;
+    const dx = e.clientX - px, dy = e.clientY - py; px = null;
+    try { vp.releasePointerCapture(e.pointerId); } catch (err) {}
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) dx < 0 ? next() : prev();
+  });
+  vp.addEventListener('pointercancel', () => { px = null; });
+  // трекпад: горизонтальная прокрутка двумя пальцами
+  let wx = 0, wLock = false, wReset;
+  window.addEventListener('wheel', e => {
+    if (overlaysOpen() || e.target.closest('.notes')) return;
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+    e.preventDefault();
+    if (wLock) return;
+    wx += e.deltaX;
+    clearTimeout(wReset); wReset = setTimeout(() => { wx = 0; }, 300);
+    if (Math.abs(wx) > 50) { wx < 0 ? prev() : next(); wx = 0; wLock = true; setTimeout(() => { wLock = false; }, 650); }
+  }, { passive: false });
 
   // ---------- HUD: прячем при бездействии ----------
   const hud = $('#hud'); let idleT;
@@ -69,7 +90,7 @@
   $('#fs-btn').addEventListener('click', toggleFs);
 
   // ---------- обзор ----------
-  const ov = $('#overview'), grid = $('#overview-grid');
+  const grid = $('#overview-grid');
   let ovBuilt = false;
   function buildOverview() {
     if (ovBuilt) return; ovBuilt = true;
@@ -97,7 +118,7 @@
   $('#overview-close').addEventListener('click', closeOverview);
 
   // ---------- демо-режим ----------
-  const demo = $('#demo'), dev = $('#demo-device'), dstage = $('#demo-stage');
+  const dev = $('#demo-device'), dstage = $('#demo-stage');
   const DEV = { phone: [390, 844], tablet: [834, 1112], desktop: [1440, 900] };
   let device = 'phone', frame = null;
   function layoutDemo() {
