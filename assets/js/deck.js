@@ -140,6 +140,7 @@
   const DEV = { phone: [390, 844], tablet: [834, 1112], desktop: [1440, 900] };
   let device = 'phone', frame = null;
   function layoutDemo() {
+    if (touch) { dev.className = 'demo__device fill'; dev.style.cssText = ''; return; }
     const [w, h] = DEV[device];
     const bw = w + (device === 'phone' ? 20 : device === 'tablet' ? 24 : 2), bh = h + (device === 'phone' ? 20 : device === 'tablet' ? 24 : 2);
     dev.className = 'demo__device ' + device;

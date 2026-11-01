@@ -333,17 +333,17 @@ button.dates:hover{background:rgba(235,238,230,0.04)}
   .aside__price{grid-column:1;grid-row:1}
   .aside__price b{font-size:20px}
   .aside__price span{font-size:13px}
-  .dates{grid-column:1;grid-row:2;display:flex;gap:6px;border:none;border-radius:0;padding:0;color:var(--muted);font-size:13px;overflow:visible}
-  .dates > div{padding:0;border:none!important;display:flex}
-  .dates > div:first-child::after{content:'—';margin-left:6px}
-  .dates__k{display:none}
-  .dates__v{font-weight:500}
+  .aside .dates{grid-column:1;grid-row:2;display:flex;gap:6px;border:none;border-radius:0;padding:0;color:var(--muted);font-size:13px;overflow:visible}
+  .aside .dates > div{padding:0;border:none!important;display:flex}
+  .aside .dates > div:first-child::after{content:'—';margin-left:6px}
+  .aside .dates__k{display:none}
+  .aside .dates__v{font-weight:500}
   .warn{grid-column:1/-1;grid-row:3;font-size:13px;padding-top:6px}
   .aside .btn--xl{grid-column:2;grid-row:1/3;width:auto;height:48px;padding:0 20px;font-size:15px}
   .aside__note{display:none}
 }
 @media (max-width:860px){
   .aside{padding:10px 10px 10px 14px}
-  .aside__price,.dates,.dates > div{white-space:nowrap;flex-wrap:nowrap}
+  .aside__price,.aside .dates,.aside .dates > div{white-space:nowrap;flex-wrap:nowrap}
   .aside .btn--xl{padding:0 16px}
 }
