@@ -30,7 +30,12 @@
   const io = new IntersectionObserver(entries => {
     entries.forEach(en => {
       if (!en.isIntersecting) return;
-      en.target.querySelectorAll('iframe[data-src]').forEach(f => { f.src = f.dataset.src; f.removeAttribute('data-src'); });
+      en.target.querySelectorAll('iframe[data-src]').forEach(f => {
+        let src = f.dataset.src;
+        // на телефоне встроенные экраны прототипа неподвижны: просим прототип отключить прокрутку
+        if (touch) { src += (src.includes('?') ? '&' : '?') + 'still=1'; f.setAttribute('scrolling', 'no'); }
+        f.src = src; f.removeAttribute('data-src');
+      });
       io.unobserve(en.target);
     });
   }, { rootMargin: '120% 0px' });

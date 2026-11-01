@@ -347,3 +347,8 @@ button.dates:hover{background:rgba(235,238,230,0.04)}
   .aside__price,.aside .dates,.aside .dates > div{white-space:nowrap;flex-wrap:nowrap}
   .aside .btn--xl{padding:0 16px}
 }
+
+/* неподвижный экран внутри презентации на телефоне */
+html.still,html.still body{overflow:hidden;touch-action:none;overscroll-behavior:none}
+html.still .bk__scroll,html.still .house__scroll,html.still .sheet__body,html.still .scr--menu,html.still .chips-row,html.still .rail,html.still .gallery{overflow:hidden}
+html.still #app{pointer-events:none}

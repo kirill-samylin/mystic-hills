@@ -180,3 +180,14 @@ button{font-family:inherit;cursor:pointer}
 .touch .demo__stage{padding:0}
 .touch .demo__bar{padding:8px 12px}
 .demo__device.fill{width:100%;height:100%;border:none;border-radius:0;box-shadow:none;transform:none}
+
+/* телефон и планшет: без панели управления, переход к демо — блоком после последнего слайда */
+.mobile-end{display:none}
+.touch .hud,.touch .notes{display:none!important}
+.touch .mobile-end{display:flex;flex-direction:column;gap:14px;width:calc(100% - 24px);max-width:560px;margin-top:12px;padding:28px 22px;border-radius:20px;background:var(--slide2);border:1px solid var(--line)}
+.mobile-end__eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.mobile-end__t{font-family:'Forum',serif;font-size:28px;line-height:1.05}
+.mobile-end__p{margin:0;color:var(--fg3);font-size:15px;line-height:1.45}
+.mobile-end__btn{margin-top:6px;height:56px;border-radius:999px;background:var(--acc);color:var(--accfg);font-weight:600;font-size:17px;display:inline-flex;align-items:center;justify-content:center}
+.mobile-end__btn:hover{color:var(--accfg);background:#ecc97f}
+.mobile-end__link{align-self:center;color:var(--acc);font-size:15px}

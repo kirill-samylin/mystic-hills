@@ -412,6 +412,8 @@
   const q = new URLSearchParams(location.search);
   const embedded = window.self !== window.top || q.get('embed');
   if (!embedded) $('#demo-strip').hidden = false;
+  // still=1 — экран внутри презентации на телефоне: показываем без возможности прокрутки
+  if (q.get('still')) document.documentElement.classList.add('still');
 
   // Глубокие ссылки для презентации:
   // ?view=booking|house|filters|menu&step=N&house=id&dates=1&extras=1&name=1&no=1&scroll=sectionId
