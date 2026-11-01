@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mystic Hills — направление «Арт-объект»</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Onest:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#0b0c0a;--bg2:#1a1c18;--fg:#f1f0ea;--fg2:#d4d4cc;--muted:#a3a59c;--lime:#c9dd7c;--limefg:#141a06;--line:rgba(241,240,234,0.12)}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
+body{font-family:'Onest',sans-serif;font-size:16px;line-height:1.5;min-height:100vh}
+a{color:var(--lime);text-decoration:none}a:hover{color:#dbeb9a}
+button{font-family:inherit;cursor:pointer}
+img{display:block}
+.u{font-family:'Unbounded',sans-serif}
+.big{margin:0;font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(36px,6vw,84px);line-height:0.9;letter-spacing:-0.04em;text-transform:uppercase}
+.btn{height:44px;padding:0 16px;border-radius:999px;display:inline-flex;align-items:center;font-size:14px;font-weight:600;color:var(--fg)}
+.btn--glass{background:rgba(11,12,10,0.5);backdrop-filter:blur(10px)}
+.btn--lime{background:var(--lime);color:var(--limefg);padding:0 18px}.btn--lime:hover{color:var(--limefg);background:#dbeb9a}
+.btn--light{background:var(--fg);color:var(--bg)}.btn--light:hover{color:var(--bg);background:#fff}
+.btn--ghost{border:1px solid rgba(241,240,234,0.3)}
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;display:flex;flex-direction:column}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,12,10,0.5) 0%,rgba(11,12,10,0) 30%,rgba(11,12,10,0) 55%,rgba(11,12,10,0.9) 100%)}
+.hero__top{position:relative;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.hero__tag{font-family:'Unbounded',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.08em;text-transform:uppercase}
+.hero__bot{position:relative;margin-top:auto;padding:0 20px 20px;display:flex;flex-direction:column;gap:20px}
+.hero__row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px}
+.hero__row p{margin:0;max-width:30ch;font-size:clamp(16px,1.6vw,20px)}
+.hero__cta{height:56px;padding:0 8px 0 22px;border-radius:999px;background:var(--fg);color:var(--bg);display:inline-flex;align-items:center;gap:16px;font-weight:600}
+.hero__cta:hover{color:var(--bg);background:#fff}
+.hero__cta span{width:42px;height:42px;border-radius:999px;background:var(--bg);color:var(--fg);display:inline-flex;align-items:center;justify-content:center}
+.hero__name{font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(52px,13.6vw,220px);line-height:0.82;letter-spacing:-0.05em;text-transform:uppercase}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(50%,240px),1fr));border-bottom:1px solid var(--line)}
+.stat{padding:24px 20px;border-right:1px solid var(--line);border-top:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat__v{font-family:'Unbounded',sans-serif;font-size:clamp(22px,3vw,34px);font-weight:600;line-height:1}
+.stat__k{color:var(--muted);font-size:14px;margin-top:6px}
+.houses{padding:80px 0 56px}
+.houses__head{padding:0 20px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;max-width:100%}
+.tab{flex:none;height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(241,240,234,0.25);background:transparent;color:var(--fg);font-size:14px;font-weight:500}
+.tab.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px;scrollbar-width:none}
+.hc{flex:none;width:clamp(260px,78vw,400px);aspect-ratio:3/4.4;border-radius:24px;overflow:hidden;position:relative;scroll-snap-align:start;color:var(--fg);background:var(--bg2)}
+.hc:hover{color:var(--fg)}
+.hc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}.hc:hover img{transform:scale(1.04)}
+.hc__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,12,10,0) 45%,rgba(11,12,10,0.88) 100%)}
+.hc__price{position:absolute;top:14px;right:14px;height:32px;padding:0 12px;border-radius:999px;background:var(--lime);color:var(--limefg);font-size:13px;font-weight:600;display:inline-flex;align-items:center}
+.hc__t{position:absolute;left:18px;right:18px;bottom:18px;display:flex;flex-direction:column;gap:6px}
+.hc__n{font-family:'Unbounded',sans-serif;font-weight:600;font-size:22px;line-height:1.05;letter-spacing:-0.02em}
+.hc__m{font-size:14px;color:var(--fg2)}
+.banya{position:relative;min-height:80svh;display:flex;align-items:flex-end;overflow:hidden}
+.banya img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.banya__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,12,10,0.1) 30%,rgba(11,12,10,0.9) 100%)}
+.banya__in{position:relative;padding:40px 20px;max-width:720px;display:flex;flex-direction:column;gap:14px}
+.banya__in p{margin:0;font-size:17px;color:#e2e2da}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(241,240,234,0.35);display:inline-flex;align-items:center;font-size:14px}
+.chip--lime{background:var(--lime);color:var(--limefg);border-color:var(--lime);font-weight:600}
+.acts{padding:80px 20px}
+.acts__g{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(46%,240px),1fr));gap:10px;margin-top:24px}
+.ac{position:relative;aspect-ratio:1;border-radius:20px;overflow:hidden;background:var(--bg2)}
+.ac img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ac__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,12,10,0) 40%,rgba(11,12,10,0.85) 100%)}
+.ac__t{position:absolute;left:14px;right:14px;bottom:12px}.ac__n{font-weight:600;font-size:15px;line-height:1.2}.ac__p{color:var(--lime);font-size:13px}
+.boxes{padding:0 20px 80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:10px}
+.box{border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:12px;background:var(--bg2)}
+.box--lime{background:var(--lime);color:var(--limefg)}
+.box__t{font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,44px);line-height:0.95;letter-spacing:-0.03em;text-transform:uppercase}
+.strip{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 20px;height:36px;background:var(--lime);color:var(--limefg);font-size:13px;font-weight:600}
+.strip a{color:var(--limefg)}.strip a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="strip"><a href="index.html">← Направления</a><span>Направление C · «Арт-объект»: фото на весь экран, крупная типографика</span><a href="../index.html">Презентация</a></div>
+<section class="hero">
+  <img src="../assets/img/hero.jpg" alt="Туманный лес">
+  <div class="hero__shade"></div>
+  <div class="hero__top"><div class="hero__tag">Арт-глэмпинг</div><div style="display:flex;gap:8px"><a href="#c-houses" class="btn btn--glass">Домики</a><a href="../demo.html?view=booking" class="btn btn--lime">Бронь</a></div></div>
+  <div class="hero__bot">
+    <div class="hero__row"><p>Сферы, лоджи и зеркальный дом в мшистом лесу у озера Невидимка.</p><a href="../demo.html?view=booking" class="hero__cta">Выбрать даты <span>→</span></a></div>
+    <div class="hero__name">Mystic<br>Hills</div>
+  </div>
+</section>
+<section class="stats">
+  <div class="stat"><div class="stat__v">11 домиков</div><div class="stat__k">от 14 000 ₽ за ночь</div></div>
+  <div class="stat"><div class="stat__v">Баня на воде</div><div class="stat__k">7 000 ₽ за 2 часа</div></div>
+  <div class="stat"><div class="stat__v">2,5 часа</div><div class="stat__k">от Петербурга</div></div>
+  <div class="stat"><div class="stat__v">С собаками</div><div class="stat__k">в 9 домиках из 11</div></div>
+</section>
+<section id="c-houses" class="houses">
+  <div class="houses__head"><h2 class="big">Где жить</h2><div class="tabs" id="tabs"></div></div>
+  <div class="rail" id="rail"></div>
+</section>
+<section class="banya">
+  <img src="../assets/img/banya.jpg" alt="Баня на озере" loading="lazy">
+  <div class="banya__shade"></div>
+  <div class="banya__in"><h2 class="big">Баня на&nbsp;озере</h2><p>Из парной — прямо в воду. Зимой — прорубь. На крыше — самовар.</p>
+    <div class="chips"><span class="chip">2 часа — 7 000 ₽</span><span class="chip">+1 час — 3 500 ₽</span><span class="chip chip--lime">от 3 часов — самовар в подарок</span></div></div>
+</section>
+<section class="acts"><h2 class="big">Что делать</h2><div class="acts__g" id="acts"></div></section>
+<section class="boxes">
+  <div class="box box--lime"><div class="box__t">Ресторан в куполе</div><div>9:00–21:00 · завтраки 9:00–11:00</div><div>Доставка в домик — 200 ₽</div></div>
+  <div class="box"><div class="box__t">Как доехать</div><div style="color:var(--fg2)">Электричка до Лосево, 2 ч + такси 30 мин. Координаты 60.638255, 29.639365</div>
+    <div class="chips" style="margin-top:4px"><a href="tel:+79313154433" class="btn btn--light">+7 931 315-44-33</a><a href="https://yandex.ru/maps/?pt=29.639365,60.638255&z=13&l=map" target="_blank" rel="noopener" class="btn btn--ghost">Маршрут</a></div></div>
+</section>
+<script>
+(function(){
+  const PP='../assets/img/houses/';
+  const H=[
+    ['Сфера','Сферы','40 м² · до 4 гостей',14000,'67___2.jpg','sfera'],
+    ['Сфера с купелью','Сферы','Купель на террасе · до 4',19000,'65____.jpg','sfera-kupel'],
+    ['Сфера «Секрет» 18+','Для двоих','Для романтических свиданий',15000,'69_IMG_3982.jpg','secret'],
+    ['Сфера «Дом с котом»','Сферы','С любыми питомцами · до 4',14000,'70_IMG_3572.jpg','kot'],
+    ['Видовой лодж с купелью','Лоджи','60+ м² · до 6 гостей',22000,'55_IMG_0435.jpg','lodzh'],
+    ['Лесной лодж с купелью','Лоджи','60+ м² · до 6 гостей',21000,'63____.jpg','les-lodzh'],
+    ['Вилла с сауной','Виллы','Сауна на террасе · до 4',17000,'56_Awyp5cHy5O58MpLX44Ir.jpg','villa-sauna'],
+    ['Вилла','Виллы','Окно во всю стену · до 4',14000,'59_IMG_0512.jpg','villa'],
+    ['Скайхаус','Виллы','Крыша и обсерватория · до 4',16000,'61_IMG_1063.jpg','sky'],
+    ['Дзен с видовой ванной','Для двоих','Ванна у окна · до 2',15000,'10_IMG_4477.jpg','dzen'],
+    ['Зеркальный дом','Для двоих','Зеркальные стены · до 2',16000,'73_IMG_9167.jpg','mirror']
+  ];
+  const ACTS=[['Самоварное чаепитие','от 1 500 ₽',1],['Иммерсивная прогулка','1 000 ₽',2],['Квест','1 000 ₽',3],['Лодка и сап','от 300 ₽',4],['Пикник','3 000 ₽',5],['Фотозоны','бесплатно',6],['Очки VR','от 999 ₽',7],['Экотропы','15 мин на авто',8]];
+  const money=n=>n.toLocaleString('ru-RU').replace(/ |,/g,' ');
+  let tab='Все';
+  function render(){
+    document.getElementById('tabs').innerHTML=['Все','Сферы','Лоджи','Виллы','Для двоих'].map(t=>'<button class="tab'+(t===tab?' on':'')+'" data-t="'+t+'">'+t+'</button>').join('');
+    document.getElementById('rail').innerHTML=H.filter(h=>tab==='Все'||h[1]===tab).map(h=>'<a href="../demo.html?view=house&house='+h[5]+'" class="hc"><img src="'+PP+h[4]+'" alt="'+h[0]+'" loading="lazy"><div class="hc__shade"></div><span class="hc__price">от '+money(h[3])+' ₽</span><div class="hc__t"><div class="hc__n">'+h[0]+'</div><div class="hc__m">'+h[2]+'</div></div></a>').join('');
+  }
+  document.getElementById('tabs').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b){tab=b.dataset.t;render();}});
+  document.getElementById('acts').innerHTML=ACTS.map(([n,p,i])=>'<div class="ac"><img src="../assets/img/acts/a'+i+'.jpg" alt="'+n+'" loading="lazy"><div class="ac__shade"></div><div class="ac__t"><div class="ac__n">'+n+'</div><div class="ac__p">'+p+'</div></div></div>').join('');
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mystic Hills — прототип сайта бронирования</title>
+<meta name="description" content="Демо нового сайта глэмпинга Mystic Hills: каталог домиков, фильтры, календарь занятости и бронирование в пять шагов.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/demo.css?v=1">
+</head>
+<body>
+<div id="app">
+
+  <div id="demo-strip" class="demo-strip" hidden>
+    <a href="index.html" class="demo-strip__back">← К презентации</a>
+    <span class="demo-strip__note">Прототип · цены и занятость условные</span>
+    <a href="variants/" class="demo-strip__link">Другие направления</a>
+  </div>
+
+  <header class="hdr">
+    <div class="hdr__in">
+      <a href="#" class="brand" data-act="goTop">Mystic Hills</a>
+      <div class="hdr__right">
+        <button class="btn btn--acc" data-act="openBookingEmpty">Забронировать</button>
+        <button class="burger" data-act="openMenu" aria-label="Меню"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img src="assets/img/hero.jpg" alt="Туманный лес" class="hero__img" fetchpriority="high">
+    <div class="hero__shade"></div>
+    <div class="hero__in">
+      <div class="eyebrow eyebrow--light">Арт-глэмпинг · Озеро Невидимка · Ленобласть</div>
+      <h1 class="hero__title">Самый мистический глэмпинг</h1>
+      <p class="hero__lead">Домики среди мшистого леса, баня на озере и тишина. 2,5 часа от Петербурга.</p>
+      <div class="search">
+        <button class="search__cell" data-act="openBookingEmpty"><div class="search__k">Заезд</div><div class="search__v" id="hero-ci">Выбрать</div></button>
+        <button class="search__cell" data-act="openBookingEmpty"><div class="search__k">Выезд</div><div class="search__v" id="hero-co">Выбрать</div></button>
+        <button class="search__cell" data-act="openFilters"><div class="search__k">Гости</div><div class="search__v" id="hero-guests">2 гостя</div></button>
+        <button class="search__go" data-act="findHouses">Найти домик</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="houses" class="wrap sec sec--houses">
+    <div class="sec__head">
+      <div class="sec__title">
+        <div class="eyebrow">Проживание</div>
+        <h2 class="h2">11 домиков в лесу</h2>
+      </div>
+      <p class="sec__sub" id="houses-sub"></p>
+    </div>
+    <div class="chips-row" id="chips"></div>
+    <div id="cards"></div>
+  </section>
+
+  <section id="banya" class="wrap sec">
+    <div class="split">
+      <div class="split__photo"><img src="assets/img/banya.jpg" alt="Баня на озере" loading="lazy"></div>
+      <div class="split__text">
+        <div class="eyebrow">Баня на озере</div>
+        <h2 class="h2">Парная прямо на воде</h2>
+        <p class="p">Панорамная парная, комната отдыха и терраса на крыше для чаепития из самовара. Летом — в озеро сразу после пара, зимой — оборудованная прорубь.</p>
+        <div class="rows">
+          <div class="row"><span>2 часа, до 6 человек</span><b>7 000 ₽</b></div>
+          <div class="row"><span>Каждый следующий час</span><b>3 500 ₽</b></div>
+          <div class="row"><span>Аренда от 3 часов</span><b class="acc">Самовар в подарок</b></div>
+        </div>
+        <div class="actions">
+          <a href="tel:+79315307755" class="btn btn--acc btn--lg">Записаться в баню</a>
+          <span class="muted small">Через администратора: +7 931 530-77-55</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="activities" class="sec sec--bleed">
+    <div class="wrap sec__title" style="padding-bottom:24px">
+      <div class="eyebrow">Развлечения</div>
+      <h2 class="h2">Чем заняться</h2>
+    </div>
+    <div class="rail" id="acts"></div>
+  </section>
+
+  <section id="cafe" class="wrap sec">
+    <div class="split">
+      <div class="split__text">
+        <div class="eyebrow">Ресторан</div>
+        <h2 class="h2">Лесной ресторан в панорамном куполе</h2>
+        <p class="p">Авторский чай и кофе, настольные игры, кино на большом экране. Еду привезём прямо в домик.</p>
+        <div class="facts">
+          <div class="fact"><div class="fact__k">Каждый день</div><div class="fact__v">9:00–21:00</div></div>
+          <div class="fact"><div class="fact__k">Завтраки</div><div class="fact__v">9:00–11:00</div></div>
+          <div class="fact"><div class="fact__k">Доставка в домик</div><div class="fact__v">200 ₽</div></div>
+          <div class="fact"><div class="fact__k">Последний заказ</div><div class="fact__v">20:30</div></div>
+        </div>
+        <div><a href="https://mystic-hills.ru/cafe" target="_blank" rel="noopener" class="btn btn--ghost btn--lg">Смотреть меню</a></div>
+      </div>
+      <div class="split__photo"><img src="assets/img/cafe.jpg" alt="Ресторан" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section id="dogs" class="wrap sec sec--dogs">
+    <div class="card-block">
+      <div class="card-block__a">
+        <h2 class="h2 h2--sm">К нам можно с собаками</h2>
+        <p class="p">Во всех сферах, лоджах, виллах и Скайхаусе. В «Доме с котом» — с любыми питомцами.</p>
+        <div class="acc bold big">2 000 ₽ за весь срок, за каждого питомца</div>
+      </div>
+      <div class="card-block__b">
+        <div class="line">В общих зонах — на поводке и в наморднике</div>
+        <div class="line">Убирайте за питомцем на территории</div>
+        <div class="line">Не оставляйте его надолго одного</div>
+        <div class="line line--last">В Дзен и Зеркальный дом — без животных</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" class="contacts">
+    <div class="wrap contacts__in">
+      <div class="contacts__text">
+        <div class="sec__title">
+          <div class="eyebrow">Как добраться</div>
+          <h2 class="h2">Озеро Невидимка</h2>
+          <p class="p">Красноозёрное сельское поселение, Приозерский район, Ленинградская область</p>
+        </div>
+        <div class="rows rows--kv">
+          <div class="row"><span class="muted">На электричке</span><span class="r">До ст. Лосево, 2 часа + такси 30 мин</span></div>
+          <div class="row"><span class="muted">Координаты</span><span>60.638255, 29.639365</span></div>
+          <div class="row"><span class="muted">Бронирование</span><a href="tel:+79313154433" class="r fg">+7 931 315-44-33<br><span class="muted small">10:00–22:00, звонок или MAX</span></a></div>
+          <div class="row"><span class="muted">Администратор</span><a href="tel:+79315307755" class="r fg">+7 931 530-77-55<br><span class="muted small">9:00–21:00</span></a></div>
+          <div class="row"><span class="muted">Почта</span><a href="mailto:info@mystic-hills.ru" class="fg">info@mystic-hills.ru</a></div>
+        </div>
+      </div>
+      <div class="map">
+        <div class="map__coords">яндекс-карта · 60.638255, 29.639365</div>
+        <a href="https://yandex.ru/maps/?pt=29.639365,60.638255&z=13&l=map" target="_blank" rel="noopener" class="btn btn--light btn--lg">Построить маршрут</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ftr">
+    <div class="wrap ftr__in">
+      <div class="ftr__top">
+        <div class="brand brand--lg">Mystic Hills</div>
+        <div class="actions">
+          <a href="https://t.me/mystic_hills_glamping" target="_blank" rel="noopener" class="btn btn--ghost">Telegram</a>
+          <a href="https://vk.com/mystic_hills_glamping" target="_blank" rel="noopener" class="btn btn--ghost">ВКонтакте</a>
+          <a href="https://max.ru/u/f9LHodD0cOJM_e6etfQErYvmC1yihYffdZWb_3Ee_3kpwWaLHGu5f7qzXiw" target="_blank" rel="noopener" class="btn btn--ghost">MAX</a>
+        </div>
+      </div>
+      <div class="ftr__links">
+        <a href="https://mystic-hills.ru/akcii">Спецпредложения</a>
+        <a href="https://mystic-hills.ru/sertifikaty">Сертификаты</a>
+        <a href="https://mystic-hills.ru/meropriyatiya">Мероприятия</a>
+        <a href="https://mystic-hills.ru/pravila">Правила пребывания</a>
+        <a href="https://mystic-hills.ru/oferta">Договор оферты</a>
+        <a href="https://mystic-hills.ru/privacy">Персональные данные</a>
+        <a href="https://mystic-hills.ru/vacancy">Вакансии</a>
+        <a href="https://mystic-hills.ru/sotrudnichestvo">Сотрудничество</a>
+      </div>
+      <div class="ftr__legal">ООО «Побратим» · ИНН 7802384717 · Glam Group: Forest Lake, Северный Крым</div>
+    </div>
+  </footer>
+
+  <div id="bar" class="bar" hidden></div>
+  <div id="overlay"></div>
+</div>
+<script src="assets/js/demo.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mystic Hills — направление «Туман»</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400;7..72,500&family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#eeefea;--bg2:#e2e5dd;--fg:#1c211d;--fg2:#4a524c;--fg3:#5c645e;--muted:#6b736c;--green:#3d5c47;--line:rgba(28,33,29,0.14)}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
+body{font-family:'Golos Text',sans-serif;font-size:16px;line-height:1.5;min-height:100vh}
+a{color:var(--green);text-decoration:none}a:hover{color:#2a4433}
+button{font-family:inherit;cursor:pointer}
+img{display:block}
+.wrap{max-width:1320px;margin:0 auto;padding-left:20px;padding-right:20px}
+.serif{font-family:'Literata',serif;font-weight:300}
+.hdr{position:sticky;top:0;z-index:20;background:rgba(238,239,234,0.86);backdrop-filter:blur(12px)}
+.hdr__in{height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-family:'Literata',serif;font-size:22px;letter-spacing:-0.01em}
+.btn{height:44px;padding:0 18px;border-radius:999px;display:inline-flex;align-items:center;font-size:14px;font-weight:600;border:1px solid transparent;color:var(--fg)}
+.btn--ghost{border-color:rgba(28,33,29,0.18);font-weight:500}
+.btn--dark{background:var(--fg);color:var(--bg)}.btn--dark:hover{color:var(--bg);background:#000}
+.h1{margin:0;font-family:'Literata',serif;font-weight:300;font-size:clamp(44px,8.4vw,128px);line-height:0.95;letter-spacing:-0.035em;max-width:12ch}
+.h2{margin:0;font-family:'Literata',serif;font-weight:300;font-size:clamp(36px,5vw,64px);line-height:1;letter-spacing:-0.03em}
+.hero{padding-top:40px}
+.hero__top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 40px;padding-bottom:32px}
+.hero__txt{max-width:320px;display:flex;flex-direction:column;gap:14px;color:var(--fg2);font-size:15px}.hero__txt p{margin:0}
+.hero__ph{position:relative;border-radius:28px;overflow:hidden;width:100%;height:clamp(460px,56vw,760px);background:#d9dcd4}
+.hero__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.search{position:absolute;left:12px;right:12px;bottom:12px;display:flex;justify-content:center}
+.search__in{width:100%;max-width:760px;background:var(--bg);border-radius:22px;padding:6px;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:4px}
+.search__c{padding:10px 16px;border-radius:16px;color:var(--fg);display:flex;flex-direction:column}
+.search__c:hover{background:var(--bg2);color:var(--fg)}
+.search__c span:first-child{font-size:12px;color:var(--muted)}.search__c span:last-child{font-weight:600}
+.search__go{min-height:56px;border-radius:16px;background:var(--green);color:#f2f3ee;font-weight:600;display:flex;align-items:center;justify-content:center}
+.search__go:hover{color:#f2f3ee;background:#2f4a38}
+.houses{padding-top:96px;padding-bottom:40px}
+.houses__head{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px 40px;padding-bottom:32px;border-bottom:1px solid var(--line)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-end}
+.tab{height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(28,33,29,0.2);background:transparent;color:var(--fg);font-size:14px;font-weight:500}
+.tab.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.hrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px 32px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line);color:var(--fg)}
+.hrow:hover{color:var(--fg)}
+.hrow__a{display:flex;gap:16px;align-items:baseline}
+.hrow__n{font-family:'Literata',serif;font-size:15px;color:#8a918b;width:28px;flex:none}
+.hrow__t{display:flex;flex-direction:column;gap:4px}
+.hrow__name{font-family:'Literata',serif;font-size:clamp(26px,3vw,36px);line-height:1.05;letter-spacing:-0.02em}
+.hrow__feat{color:var(--fg3);font-size:15px}
+.hrow__b{display:flex;gap:16px;align-items:center;justify-content:space-between}
+.hrow__meta{display:flex;flex-direction:column;gap:2px;font-size:14px;color:var(--fg3)}
+.hrow__meta b{color:var(--fg);font-weight:600;font-size:17px}
+.hrow img{width:clamp(120px,22vw,220px);aspect-ratio:3/2;object-fit:cover;border-radius:14px;flex:none}
+.sec{padding-top:56px;padding-bottom:56px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:20px}
+.card{background:var(--bg2);border-radius:28px;overflow:hidden;display:flex;flex-direction:column}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.card__b{padding:24px;display:flex;flex-direction:column;gap:10px}
+.card__b h3{margin:0;font-family:'Literata',serif;font-weight:400;font-size:32px;letter-spacing:-0.02em}
+.card__b p{margin:0;color:var(--fg2)}
+.card__r{display:flex;justify-content:space-between;gap:12px;padding-top:10px;border-top:1px solid var(--line)}.card__r b{font-weight:600}
+.acts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:0 40px}
+.act{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid var(--line)}.act span:last-child{color:var(--fg3);text-align:right}
+.dark{background:var(--fg);color:var(--bg);border-radius:28px;padding:clamp(24px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:32px 56px}
+.dark .h2{font-size:clamp(34px,4.5vw,56px)}
+.dark p{margin:0;color:#c4c9c1}
+.dark__a{display:flex;flex-direction:column;gap:14px}
+.dark__b{display:flex;flex-direction:column}
+.kv{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid rgba(238,239,234,0.16)}.kv span:first-child{color:#a9afa7}.kv a{color:var(--bg)}
+.btn--light{background:var(--bg);color:var(--fg);height:48px;padding:0 22px}.btn--light:hover{color:var(--fg);background:#fff}
+.strip{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 20px;height:36px;background:var(--fg);color:var(--bg);font-size:13px;font-weight:600}
+.strip a{color:var(--bg)}.strip a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="strip"><a href="index.html">← Направления</a><span>Направление B · «Туман»: светлая, редакционная, список домиков</span><a href="../index.html">Презентация</a></div>
+<header class="hdr"><div class="wrap hdr__in"><div class="brand">Mystic Hills</div><div style="display:flex;gap:8px"><a href="tel:+79313154433" class="btn btn--ghost">Позвонить</a><a href="../demo.html" class="btn btn--dark">Забронировать</a></div></div></header>
+
+<section class="wrap hero">
+  <div class="hero__top">
+    <h1 class="h1">Тишина, туман и&nbsp;лес у&nbsp;озера</h1>
+    <div class="hero__txt"><p>Арт-глэмпинг у озера Невидимка. 11 домиков, баня на воде и ресторан в куполе.</p><p>2 часа на электричке до Лосево и 30 минут на такси.</p></div>
+  </div>
+  <div class="hero__ph">
+    <img src="../assets/img/hero.jpg" alt="Туманный лес">
+    <div class="search"><div class="search__in">
+      <a href="../demo.html?view=booking" class="search__c"><span>Заезд</span><span>Выбрать</span></a>
+      <a href="../demo.html?view=booking" class="search__c"><span>Выезд</span><span>Выбрать</span></a>
+      <a href="../demo.html?view=filters" class="search__c"><span>Гости</span><span>2 взрослых</span></a>
+      <a href="../demo.html?view=booking" class="search__go">Найти</a>
+    </div></div>
+  </div>
+</section>
+
+<section class="wrap houses">
+  <div class="houses__head"><h2 class="h2">Домики</h2><div class="tabs" id="tabs"></div></div>
+  <div id="list"></div>
+</section>
+
+<section class="wrap sec">
+  <div class="cards">
+    <div class="card"><img src="../assets/img/banya.jpg" alt="Баня на озере" loading="lazy"><div class="card__b"><h3>Баня на озере</h3><p>Парная на воде, прорубь зимой, самовар на крыше.</p><div class="card__r"><span>2 часа, до 6 человек</span><b>7 000 ₽</b></div></div></div>
+    <div class="card"><img src="../assets/img/cafe.jpg" alt="Ресторан" loading="lazy"><div class="card__b"><h3>Ресторан в куполе</h3><p>Завтраки 9:00–11:00, доставка в домик 200 ₽.</p><div class="card__r"><span>Каждый день</span><b>9:00–21:00</b></div></div></div>
+  </div>
+</section>
+
+<section class="wrap sec">
+  <h2 class="h2" style="margin-bottom:24px">Чем заняться</h2>
+  <div class="acts" id="acts"></div>
+</section>
+
+<section class="wrap sec" style="padding-bottom:96px">
+  <div class="dark">
+    <div class="dark__a"><h2 class="h2">Как добраться</h2><p>Озеро Невидимка, Приозерский район, Ленинградская область. Координаты 60.638255, 29.639365.</p><div><a href="https://yandex.ru/maps/?pt=29.639365,60.638255&z=13&l=map" target="_blank" rel="noopener" class="btn btn--light">Маршрут в Яндекс Картах</a></div></div>
+    <div class="dark__b">
+      <div class="kv"><span>Бронирование</span><a href="tel:+79313154433">+7 931 315-44-33</a></div>
+      <div class="kv"><span>Администратор</span><a href="tel:+79315307755">+7 931 530-77-55</a></div>
+      <div class="kv"><span>Почта</span><a href="mailto:info@mystic-hills.ru">info@mystic-hills.ru</a></div>
+      <div class="kv"><span>Электричка</span><span style="text-align:right">до Лосево, 2 ч + такси 30 мин</span></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const PP='../assets/img/houses/';
+  const H=[
+    ['Сфера','Сферы','Купольный дом с видом на озеро','40 м² · до 4 · с собакой',14000,'67___2.jpg','sfera'],
+    ['Сфера с купелью','Сферы','Горячая купель на террасе','40 м² · до 4 · с собакой',19000,'65____.jpg','sfera-kupel'],
+    ['Сфера «Секрет» 18+','Особенные','Для романтических свиданий','40 м² · до 4',15000,'69_IMG_3982.jpg','secret'],
+    ['Сфера «Дом с котом»','Сферы','Можно с любыми питомцами','40 м² · до 4',14000,'70_IMG_3572.jpg','kot'],
+    ['Видовой лодж с купелью','Лоджи','Большой дом с купелью на террасе','60+ м² · до 6 · с собакой',22000,'55_IMG_0435.jpg','lodzh'],
+    ['Лесной лодж с купелью','Лоджи','В глубине леса, просторная терраса','60+ м² · до 6 · с собакой',21000,'63____.jpg','les-lodzh'],
+    ['Вилла с сауной','Виллы','Панорамная сауна на террасе','30 м² · до 4 · с собакой',17000,'56_Awyp5cHy5O58MpLX44Ir.jpg','villa-sauna'],
+    ['Вилла','Виллы','Окно во всю стену','30 м² · до 4 · с собакой',14000,'59_IMG_0512.jpg','villa'],
+    ['Космодом Скайхаус','Особенные','Крыша с обсерваторией','34 м² · до 4 · с собакой',16000,'61_IMG_1063.jpg','sky'],
+    ['Дзен с видовой ванной','Особенные','Ванна у панорамного окна','20 м² · до 2',15000,'24_461A3453.jpg','dzen'],
+    ['Зеркальный дом','Особенные','Зеркальные стены растворяют дом в лесу','20 м² · до 2',16000,'73_IMG_9167.jpg','mirror']
+  ];
+  const ACTS=[['Самоварное чаепитие','от 1 500 ₽'],['Иммерсивная прогулка','1 000 ₽'],['Квест по легендам','1 000 ₽'],['Сапборд','от 600 ₽'],['Лодка','от 300 ₽'],['Велосипеды','от 400 ₽'],['Набор для пикника','3 000 ₽'],['Очки VR','от 999 ₽'],['Проектор в домик','2 000 ₽ / сутки'],['Фотозоны','бесплатно'],['Экотропы заказника','15 мин на авто'],['Настольные игры','бесплатно']];
+  const money=n=>n.toLocaleString('ru-RU').replace(/ |,/g,' ');
+  let tab='Все';
+  function render(){
+    document.getElementById('tabs').innerHTML=['Все','Сферы','Лоджи','Виллы','Особенные'].map(t=>'<button class="tab'+(t===tab?' on':'')+'" data-t="'+t+'">'+t+'</button>').join('');
+    document.getElementById('list').innerHTML=H.filter(h=>tab==='Все'||h[1]===tab).map((h,i)=>'<a href="../demo.html?view=house&house='+h[6]+'" class="hrow"><div class="hrow__a"><span class="hrow__n">'+String(i+1).padStart(2,'0')+'</span><div class="hrow__t"><span class="hrow__name">'+h[0]+'</span><span class="hrow__feat">'+h[2]+'</span></div></div><div class="hrow__b"><div class="hrow__meta"><span>'+h[3]+'</span><b>от '+money(h[4])+' ₽</b></div><img src="'+PP+h[5]+'" alt="'+h[0]+'" loading="lazy"></div></a>').join('');
+  }
+  document.getElementById('tabs').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b){tab=b.dataset.t;render();}});
+  document.getElementById('acts').innerHTML=ACTS.map(([n,p])=>'<div class="act"><span>'+n+'</span><span>'+p+'</span></div>').join('');
+  render();
+})();
+</script>
+</body>
+</html>

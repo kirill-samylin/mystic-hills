@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mystic Hills — редизайн сайта бронирования</title>
+<meta name="description" content="Презентация редизайна сайта глэмпинга Mystic Hills: как было, как стало, и живой демо-прототип нового сайта.">
+<meta property="og:title" content="Mystic Hills — редизайн сайта бронирования">
+<meta property="og:description" content="Как было, как стало и что это даёт гостям и глэмпингу. С демо-режимом.">
+<meta property="og:image" content="assets/img/hero.jpg">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/deck.css?v=1">
+</head>
+<body>
+
+<div class="progress"><div class="progress__bar" id="progress"></div></div>
+
+<div class="viewport" id="viewport">
+  <div class="stage" id="stage">
+
+    <!-- 1 -->
+    <section class="slide slide--cover" data-label="Обложка" data-notes="Редизайн сайта бронирования. Сравниваем текущий сайт и новый прототип, затем — преимущества и открытые вопросы.">
+      <img src="assets/img/hero.jpg" alt="" class="cover__img">
+      <div class="cover__shade"></div>
+      <div class="cover__in">
+        <div class="eyebrow-xl eyebrow-xl--acc">Mystic Hills · ноябрь 2026</div>
+        <h1 class="t1">Редизайн сайта бронирования</h1>
+        <p class="cover__lead">Как было, как стало и что это даёт гостям и глэмпингу</p>
+        <div class="cover__hint">
+          <span class="key">→</span> листать <span class="sep">·</span> <span class="key">D</span> демо-режим <span class="sep">·</span> <span class="key">F</span> на весь экран
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="slide slide--pad slide--grid2a" data-label="Текущий сайт" data-notes="Пять барьеров на пути гостя к оплате. Каждый из них далее показан на сравнении экранов.">
+      <div class="col col--40">
+        <div class="eyebrow-xl">Текущий сайт</div>
+        <h2 class="t2 t2--lg">Что мешает гостю дойти до оплаты</h2>
+        <div class="frame frame--fixed"><img src="assets/img/old/old-prozhivanie.jpg" alt="Текущий каталог" class="shot" style="height:100%;object-position:0 6%"></div>
+      </div>
+      <ol class="nlist nlist--top">
+        <li><span class="num">01</span><span>Бронирование вынесено на отдельную страницу с пустым виджетом Bnovo</span></li>
+        <li><span class="num">02</span><span>11 домиков без фильтров, одинаковые кнопки «Подробнее»</span></li>
+        <li><span class="num">03</span><span>Занятость не видна до поиска, цена не пересчитывается под даты</span></li>
+        <li><span class="num">04</span><span>Допуслуги описаны текстом в правилах, их нельзя добавить к брони</span></li>
+        <li><span class="num">05</span><span>Длинные текстовые страницы и мелкий шрифт на телефоне</span></li>
+      </ol>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide slide--pad" data-label="Главная" data-notes="Слева — скриншот текущей главной. Справа — живой прототип: его можно листать прямо в презентации.">
+      <div class="head"><h2 class="t2">Главная страница</h2><p class="lead">Один экран вместо плиток-разделов: заголовок, поиск по датам и сразу домики</p></div>
+      <div class="two">
+        <div class="col">
+          <span class="pill pill--was">Было</span>
+          <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/old-index.jpg" alt="Текущая главная" class="shot"></div>
+        </div>
+        <div class="col">
+          <span class="pill pill--now">Стало</span>
+          <div class="rel">
+            <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><iframe data-src="demo.html" title="Новая главная" class="web"></iframe></div>
+            <div class="phone phone--float"><iframe data-src="demo.html" title="Новая главная, телефон"></iframe></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="slide slide--pad" data-label="Поиск по датам" data-notes="Форма поиска занимает тот же первый экран, но ведёт в календарь с занятостью, а не в отдельный виджет.">
+      <div class="head"><h2 class="t2">Поиск по датам на первом экране</h2><p class="lead lead--700">Заезд, выезд и гости в одной панели; поле промокода перенесено на шаг оплаты</p></div>
+      <div class="two">
+        <div class="col">
+          <span class="pill pill--was">Было</span>
+          <div class="frame frame--560"><img src="assets/img/old/old-index.jpg" alt="Текущий поиск" class="shot" style="height:100%;object-position:0 10%"></div>
+          <p class="note">Четыре поля и кнопка «Показать наличие». Даты по умолчанию — ближайшая ночь, гостей — один.</p>
+        </div>
+        <div class="col">
+          <span class="pill pill--now">Стало</span>
+          <div class="frame frame--560"><iframe data-src="demo.html" title="Новый поиск" class="web web--900"></iframe></div>
+          <p class="note">Панель запоминает выбор: после дат карточки домиков показывают цену за весь период и занятость.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide slide--pad" data-label="Каталог домиков" data-notes="Каталог на главной, а не на отдельной странице. Быстрые фильтры — чипы над сеткой.">
+      <div class="head"><h2 class="t2">Каталог домиков</h2><p class="lead">Крупное фото, тип, вместимость и цена за выбранные даты в каждой карточке</p></div>
+      <div class="two">
+        <div class="col">
+          <span class="pill pill--was">Было</span>
+          <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/old-prozhivanie.jpg" alt="Текущий каталог" class="shot" style="object-position:0 4%"></div>
+        </div>
+        <div class="col">
+          <span class="pill pill--now">Стало</span>
+          <div class="rel">
+            <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><iframe data-src="demo.html?scroll=houses" title="Новый каталог" class="web"></iframe></div>
+            <div class="phone phone--float"><iframe data-src="demo.html?scroll=houses" title="Новый каталог, телефон"></iframe></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide slide--pad slide--text2phones" data-label="Фильтры" data-notes="На старом сайте фильтров нет. Новая панель — шесть групп, результат пересчитывается сразу.">
+      <div class="col col--36">
+        <span class="pill pill--now">Новое</span>
+        <h2 class="t2">Фильтры каталога</h2>
+        <p class="text">На текущем сайте выбор домика — чтение одиннадцати описаний подряд. Теперь гость отсекает лишнее за пару касаний.</p>
+        <ul class="ulist">
+          <li>Количество гостей</li>
+          <li>Можно с собакой или другим питомцем</li>
+          <li>Купель, сауна, видовая ванна</li>
+          <li>Тип дома: сфера, лодж, вилла, дзен…</li>
+          <li>Цена за ночь</li>
+          <li>Для двоих / романтика</li>
+        </ul>
+      </div>
+      <div class="phone-wrap phone-wrap--pt"><div class="phone"><iframe data-src="demo.html?scroll=houses" title="Быстрые фильтры"></iframe></div></div>
+      <div class="phone-wrap phone-wrap--pt"><div class="phone"><iframe data-src="demo.html?view=filters" title="Панель фильтров"></iframe></div></div>
+    </section>
+
+    <!-- 7 -->
+    <section class="slide slide--pad" data-label="Карточка домика" data-notes="Старая карточка — длинная страница с плитками оснащения и правилами. Новая — галерея, факты, оснащение и кнопка бронирования внизу экрана.">
+      <div class="head"><h2 class="t2">Карточка домика</h2><p class="lead">Галерея, оснащение и цена за даты; кнопка «Забронировать» всегда на экране</p></div>
+      <div class="grid-1-2p">
+        <div class="col">
+          <span class="pill pill--was">Было</span>
+          <div class="frame"><img src="assets/img/old/old-sfera.jpg" alt="Текущая страница Сферы" class="shot" style="height:100%"></div>
+        </div>
+        <div class="col">
+          <span class="pill pill--now">Стало</span>
+          <div class="phone-wrap"><div class="phone"><iframe data-src="demo.html?view=house&amp;house=sfera" title="Сфера"></iframe></div></div>
+        </div>
+        <div class="col">
+          <span class="pill pill--ghost"></span>
+          <div class="phone-wrap"><div class="phone"><iframe data-src="demo.html?view=house&amp;house=lodzh&amp;dates=1" title="Лодж с датами"></iframe></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="slide slide--pad slide--text2phones" data-label="Календарь" data-notes="Занятые дни зачёркнуты до выбора. После дат — список свободных домиков с ценой за весь период. Занятость пока условная, нужна синхронизация с Bnovo.">
+      <div class="col col--36">
+        <span class="pill pill--now">Новое</span>
+        <h2 class="t2">Календарь и занятость</h2>
+        <p class="text">Гость видит занятые дни ещё до выбора домика. Минимальный срок и цена за период считаются автоматически.</p>
+        <ul class="ulist">
+          <li>Два месяца на экране, занятые даты зачёркнуты</li>
+          <li>Выбор диапазона двумя касаниями</li>
+          <li>Домики, занятые на эти даты, уходят вниз списка</li>
+          <li>Данные о занятости — из Bnovo после интеграции</li>
+        </ul>
+      </div>
+      <div class="phone-wrap phone-wrap--pt"><div class="phone"><iframe data-src="demo.html?view=booking&amp;step=0&amp;house=sfera-kupel" title="Шаг 1 — даты"></iframe></div></div>
+      <div class="phone-wrap phone-wrap--pt"><div class="phone"><iframe data-src="demo.html?view=booking&amp;step=1&amp;dates=1" title="Шаг 2 — домик"></iframe></div></div>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide slide--pad slide--grid1-640" data-label="Бронирование: было" data-notes="Сейчас страница бронирования — заголовок, текст о тарифе и пустой виджет. Выбор домика, гостей и оплата происходят уже на стороне Bnovo.">
+      <div class="col">
+        <span class="pill pill--was">Было</span>
+        <div class="frame frame--800"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/old-booking.jpg" alt="Текущая страница бронирования" class="shot shot--764"></div>
+      </div>
+      <div class="col col--36" style="padding-top:58px">
+        <h2 class="t2">Бронирование: как сейчас</h2>
+        <ul class="ulist ulist--20">
+          <li>Отдельная страница, на которую гость попадает с любого раздела</li>
+          <li>До нажатия «Найти» экран пустой: ни домиков, ни цен</li>
+          <li>Дальнейшие шаги — во внешнем виджете, без фото и описаний</li>
+          <li>Баня, самовар, украшение домика бронируются по телефону</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="slide slide--pad" data-label="Бронирование: пять шагов" data-notes="Даты → домик → гости → дополнения → оплата. Прогресс сверху, итог снизу. Все шаги внутри сайта.">
+      <div class="head">
+        <div class="col"><span class="pill pill--now">Стало</span><h2 class="t2">Бронирование: пять шагов внутри сайта</h2></div>
+        <p class="lead lead--620">Даты · Домик · Гости · Дополнения · Оплата. Итоговая сумма пересчитывается на каждом шаге</p>
+      </div>
+      <div class="phones4">
+        <div class="col col--16"><div class="cap">Шаг 3 · Гости</div><div class="phone-wrap"><div class="phone"><iframe data-src="demo.html?view=booking&amp;step=2&amp;house=sfera-kupel&amp;dates=1" title="Шаг 3 — гости"></iframe></div></div></div>
+        <div class="col col--16"><div class="cap">Шаг 4 · Дополнения</div><div class="phone-wrap"><div class="phone"><iframe data-src="demo.html?view=booking&amp;step=3&amp;house=sfera-kupel&amp;dates=1&amp;extras=1" title="Шаг 4 — дополнения"></iframe></div></div></div>
+        <div class="col col--16"><div class="cap">Шаг 5 · Оплата</div><div class="phone-wrap"><div class="phone"><iframe data-src="demo.html?view=booking&amp;step=4&amp;house=sfera-kupel&amp;dates=1&amp;extras=1&amp;name=1" title="Шаг 5 — оплата"></iframe></div></div></div>
+        <div class="col col--16"><div class="cap">Подтверждение</div><div class="phone-wrap"><div class="phone"><iframe data-src="demo.html?view=booking&amp;step=5&amp;house=sfera-kupel&amp;dates=1&amp;extras=1&amp;name=1&amp;no=1" title="Подтверждение"></iframe></div></div></div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="slide slide--pad slide--grid1-328" data-label="Допуслуги" data-notes="Дополнения встроены в бронь: баня, самовар, украшение, травы в купель, пикник, проектор, поздний заезд. Это прямой рост среднего чека без звонков администратору.">
+      <div class="col col--36">
+        <span class="pill pill--now">Новое</span>
+        <h2 class="t2">Дополнения к отдыху в процессе брони</h2>
+        <p class="text">Сейчас эти услуги упомянуты в правилах пребывания и заказываются по телефону. В новом флоу они добавляются одним касанием и попадают в итог.</p>
+        <div class="prices">
+          <div class="prices__r"><span>Баня на озере, 2 часа</span><span class="muted">7 000 ₽</span></div>
+          <div class="prices__r"><span>Набор для пикника</span><span class="muted">3 000 ₽</span></div>
+          <div class="prices__r"><span>Самовар на дровах</span><span class="muted">2 000 ₽</span></div>
+          <div class="prices__r"><span>Проектор в домик</span><span class="muted">2 000 ₽ / сутки</span></div>
+          <div class="prices__r prices__r--last"><span>Романтическое украшение</span><span class="muted">3 000 ₽</span></div>
+          <div class="prices__r prices__r--last"><span>Поздний заезд</span><span class="muted">1 500 ₽</span></div>
+        </div>
+        <p class="note">Цены — с текущего сайта, уточняются перед запуском.</p>
+      </div>
+      <div class="phone-wrap phone-wrap--pt"><div class="phone"><iframe data-src="demo.html?view=booking&amp;step=3&amp;house=lodzh&amp;dates=1&amp;extras=1" title="Дополнения"></iframe></div></div>
+    </section>
+
+    <!-- 12 -->
+    <section class="slide slide--pad" data-label="Баня" data-notes="Баня на старом сайте — страница правил без фото и цены. Теперь это раздел главной: фото, время, стоимость и кнопка в бронь.">
+      <div class="head"><h2 class="t2">Баня на озере</h2><p class="lead">Фото, часы работы и цена на одном экране; правила — отдельной ссылкой</p></div>
+      <div class="two">
+        <div class="col"><span class="pill pill--was">Было</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/old-banya.jpg" alt="Текущая страница бани" class="shot"></div></div>
+        <div class="col"><span class="pill pill--now">Стало</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><iframe data-src="demo.html?scroll=banya" title="Баня" class="web"></iframe></div></div>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="slide slide--pad" data-label="Ресторан" data-notes="Ресторан: вместо длинной страницы с галереей — компактный блок с режимом, завтраками, доставкой в домик и ссылкой на меню.">
+      <div class="head"><h2 class="t2">Ресторан</h2><p class="lead">Режим работы, завтраки и доставка в домик — цифрами, а не абзацами</p></div>
+      <div class="two">
+        <div class="col"><span class="pill pill--was">Было</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/old-cafe.jpg" alt="Текущая страница ресторана" class="shot" style="object-position:0 12%"></div></div>
+        <div class="col">
+          <span class="pill pill--now">Стало</span>
+          <div class="rel">
+            <div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><iframe data-src="demo.html?scroll=cafe" title="Ресторан" class="web"></iframe></div>
+            <div class="phone phone--float"><iframe data-src="demo.html?scroll=cafe" title="Ресторан, телефон"></iframe></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="slide slide--pad" data-label="Контакты" data-notes="Блок «Как добраться» на старом сайте повторяется на каждой странице вместе с реквизитами. Теперь — один раздел с маршрутом, телефонами и мессенджерами.">
+      <div class="head"><h2 class="t2">Контакты и как добраться</h2><p class="lead">Маршрут, телефоны и мессенджеры в одном блоке; реквизиты — в подвале</p></div>
+      <div class="two">
+        <div class="col"><span class="pill pill--was">Было</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><img src="assets/img/old/old-index.jpg" alt="Текущий блок контактов" class="shot" style="object-position:0 62%"></div></div>
+        <div class="col"><span class="pill pill--now">Стало</span><div class="frame"><div class="frame__bar"><i></i><i></i><i></i></div><iframe data-src="demo.html?scroll=contacts" title="Контакты" class="web"></iframe></div></div>
+      </div>
+    </section>
+
+    <!-- 15 -->
+    <section class="slide slide--pad" data-label="Мобильная версия" data-notes="Весь путь гостя проходится на телефоне: главная, каталог, домик, оплата. Кнопки не меньше 44 пикселей, итог брони всегда внизу экрана.">
+      <div class="head"><h2 class="t2">Мобильная версия как основа</h2><p class="lead lead--700">Весь путь от главной до оплаты проходится одной рукой</p></div>
+      <div class="phones4">
+        <div class="col col--16"><div class="cap">Главная</div><div class="phone-wrap"><div class="phone"><iframe data-src="demo.html" title="Главная"></iframe></div></div></div>
+        <div class="col col--16"><div class="cap">Меню</div><div class="phone-wrap"><div class="phone"><iframe data-src="demo.html?view=menu" title="Меню"></iframe></div></div></div>
+        <div class="col col--16"><div class="cap">Домик</div><div class="phone-wrap"><div class="phone"><iframe data-src="demo.html?view=house&amp;house=dzen&amp;dates=1" title="Домик"></iframe></div></div></div>
+        <div class="col col--16"><div class="cap">Оплата</div><div class="phone-wrap"><div class="phone"><iframe data-src="demo.html?view=booking&amp;step=4&amp;house=dzen&amp;dates=1&amp;name=1" title="Оплата"></iframe></div></div></div>
+      </div>
+    </section>
+
+    <!-- 16 -->
+    <section class="slide slide--pad slide--alt slide--feats" data-label="Преимущества" data-notes="Итог по гостю и по бизнесу. Главное — весь путь до оплаты внутри сайта и допуслуги в чеке.">
+      <h2 class="t2 t2--lg">Преимущества нового дизайна</h2>
+      <div class="feats">
+        <div class="feat"><div class="feat__t">Путь до оплаты внутри сайта</div><p>Пять понятных шагов вместо перехода во внешний виджет без фото и описаний.</p></div>
+        <div class="feat"><div class="feat__t">Занятость и цена видны сразу</div><p>Календарь с занятыми днями, цена за период в каждой карточке, занятые домики уходят вниз.</p></div>
+        <div class="feat"><div class="feat__t">Фильтры вместо чтения 11 описаний</div><p>Гости, питомцы, купель или сауна, тип дома, цена, романтика.</p></div>
+        <div class="feat"><div class="feat__t">Допуслуги в чеке</div><p>Баня, самовар, украшение и пикник добавляются при бронировании, а не по звонку администратору.</p></div>
+        <div class="feat"><div class="feat__t">Телефон как основной экран</div><p>Крупные кнопки, итог брони закреплён внизу, один сайт для всех устройств.</p></div>
+        <div class="feat"><div class="feat__t">Единый стиль и меньше страниц</div><p>Одна длинная главная с якорным меню вместо восьми разделов с повторяющимися блоками.</p></div>
+      </div>
+    </section>
+
+    <!-- 17 -->
+    <section class="slide slide--pad slide--grid2b" data-label="Открытые вопросы" data-notes="Что нужно от команды глэмпинга, чтобы довести прототип до запуска.">
+      <div class="col col--36">
+        <div class="eyebrow-xl eyebrow-xl--acc">Следующий шаг</div>
+        <h2 class="t2 t2--lg">Что нужно для запуска</h2>
+        <p class="text">Прототип рабочий: все экраны и шаги бронирования кликабельны. Для запуска не хватает данных и нескольких решений.</p>
+        <div class="cta-row">
+          <button class="cta" data-demo>Открыть демо сайта →</button>
+          <a href="demo.html" target="_blank" rel="noopener" class="cta cta--ghost">В новой вкладке</a>
+        </div>
+        <a href="variants/" class="cta-link">Альтернативные направления главной: «Туман» и «Арт-объект» →</a>
+      </div>
+      <ol class="nlist nlist--sm">
+        <li><span class="num">01</span><span>Интеграция с Bnovo: цены, занятость, передача брони</span></li>
+        <li><span class="num">02</span><span>Логика оплаты: полная сумма или предоплата</span></li>
+        <li><span class="num">03</span><span>Проверка фото по домикам и снимки купели для Сфер</span></li>
+        <li><span class="num">04</span><span>Светлая версия логотипа для тёмного фона</span></li>
+        <li><span class="num">05</span><span>Актуальные цены допуслуг и правила отмены</span></li>
+      </ol>
+    </section>
+
+  </div>
+</div>
+
+<!-- панель управления -->
+<div class="hud" id="hud">
+  <button class="hud__btn" id="prev" title="Назад (←)">←</button>
+  <div class="hud__count"><span id="cur">1</span> / <span id="total">17</span></div>
+  <button class="hud__btn" id="next" title="Далее (→)">→</button>
+  <span class="hud__label" id="label"></span>
+  <span class="hud__sep"></span>
+  <button class="hud__btn hud__btn--acc" id="demo-btn" data-demo title="Демо-режим (D)">Демо</button>
+  <button class="hud__btn" id="overview-btn" title="Все слайды (O)">⊞</button>
+  <button class="hud__btn" id="notes-btn" title="Заметки (N)">✎</button>
+  <button class="hud__btn" id="fs-btn" title="На весь экран (F)">⛶</button>
+</div>
+
+<!-- заметки докладчика -->
+<aside class="notes" id="notes" hidden><div class="notes__t">Заметки</div><div id="notes-text"></div></aside>
+
+<!-- обзор слайдов -->
+<div class="overview" id="overview" hidden>
+  <div class="overview__head"><div class="overview__t">Все слайды</div><button class="hud__btn" id="overview-close">Закрыть</button></div>
+  <div class="overview__grid" id="overview-grid"></div>
+</div>
+
+<!-- демо-режим -->
+<div class="demo" id="demo" hidden>
+  <div class="demo__bar">
+    <div class="demo__title">Демо-режим · прототип нового сайта</div>
+    <div class="demo__devices" id="devices">
+      <button data-dev="phone" class="on">Телефон</button>
+      <button data-dev="tablet">Планшет</button>
+      <button data-dev="desktop">Десктоп</button>
+    </div>
+    <div class="demo__actions">
+      <button class="hud__btn" id="demo-reload" title="Начать заново">↻</button>
+      <a class="hud__btn" href="demo.html" target="_blank" rel="noopener">В новой вкладке ↗</a>
+      <button class="hud__btn" id="demo-close" title="Закрыть (Esc)">Закрыть ✕</button>
+    </div>
+  </div>
+  <div class="demo__stage" id="demo-stage"><div class="demo__device" id="demo-device"></div></div>
+</div>
+
+<div class="toast" id="toast" hidden>Поверните телефон горизонтально — слайды станут крупнее. <button id="toast-close">Понятно</button></div>
+
+<script src="assets/js/deck.js?v=1"></script>
+</body>
+</html>
