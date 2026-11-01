@@ -26,37 +26,28 @@
   }
   window.addEventListener('resize', () => { fit(); scheduleSync(); }); fit();
 
-  // ---------- ленивые айфреймы: грузим, когда страница близко к экрану ----------
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (!en.isIntersecting) return;
-      en.target.querySelectorAll('iframe[data-src]').forEach(f => {
-        let src = f.dataset.src;
-        // на телефоне встроенные экраны прототипа неподвижны: просим прототип отключить прокрутку
-        if (touch) { src += (src.includes('?') ? '&' : '?') + 'still=1'; f.setAttribute('scrolling', 'no'); }
-        f.src = src; f.removeAttribute('data-src');
-      });
-      io.unobserve(en.target);
-    });
-  }, { rootMargin: '120% 0px' });
-  pages.forEach(p => io.observe(p));
-
-  // ---------- плёнка над встроенными прототипами: прокрутка идёт по странице,
-  // прототип включается только явной кнопкой (случайный тап при свайпе ничего не делает),
-  // кнопка «Вернуться» выключает его; при уходе страницы с экрана плёнка возвращается
+  // ---------- встроенные экраны прототипа ----------
+  // В слайдах лежат скриншоты (лёгкие, телефон их тянет). На компьютере кнопка «Попробовать прототип»
+  // подменяет скриншот живым айфреймом, «К слайдам» возвращает скриншот. На телефоне — только скриншоты.
   let lastScroll = 0;
   window.addEventListener('scroll', () => { lastScroll = Date.now(); }, { passive: true });
+  function goLive(box) {
+    const img = box.querySelector('img[data-frame]'); if (!img || box.classList.contains('live')) return;
+    const f = document.createElement('iframe'); f.src = img.dataset.frame; f.title = img.alt; f.className = img.className.replace('shot-live', '').trim();
+    img.insertAdjacentElement('afterend', f); box.classList.add('live');
+  }
+  function goStill(box) { const f = box.querySelector('iframe'); if (f) f.remove(); box.classList.remove('live'); }
   doc.querySelectorAll('.frame, .phone').forEach(box => {
-    if (!box.querySelector('iframe') || touch) return;
+    if (!box.querySelector('img[data-frame]') || touch) return;
     const c = document.createElement('div'); c.className = 'cover';
     c.innerHTML = '<button type="button" class="cover__btn">Попробовать прототип</button>';
-    c.querySelector('button').addEventListener('click', e => { e.stopPropagation(); if (Date.now() - lastScroll < 350) return; box.classList.add('live'); });
+    c.querySelector('button').addEventListener('click', e => { e.stopPropagation(); if (Date.now() - lastScroll < 350) return; goLive(box); });
     const off = document.createElement('button'); off.type = 'button'; off.className = 'cover__off'; off.textContent = '✕ К слайдам';
-    off.addEventListener('click', () => box.classList.remove('live'));
+    off.addEventListener('click', () => goStill(box));
     box.appendChild(c); box.appendChild(off);
   });
   const ioLive = new IntersectionObserver(entries => {
-    entries.forEach(en => { if (!en.isIntersecting) en.target.querySelectorAll('.live').forEach(b => b.classList.remove('live')); });
+    entries.forEach(en => { if (!en.isIntersecting) en.target.querySelectorAll('.live').forEach(goStill); });
   }, { threshold: 0 });
   pages.forEach(p => ioLive.observe(p));
 
@@ -121,7 +112,6 @@
       const b = document.createElement('button'); b.className = 'thumb' + (i === cur ? ' on' : '');
       const box = document.createElement('div'); box.className = 'thumb__box';
       const clone = s.cloneNode(true);
-      clone.querySelectorAll('iframe').forEach(f => { const d = document.createElement('div'); d.className = 'iframe-ph'; d.style.cssText = f.style.cssText; d.style.width = f.className.includes('web') ? '1280px' : '390px'; d.style.height = '900px'; f.replaceWith(d); });
       clone.querySelectorAll('[data-demo]').forEach(x => x.removeAttribute('data-demo'));
       box.appendChild(clone);
       const cap = document.createElement('div'); cap.className = 'thumb__cap'; cap.innerHTML = '<b>' + (i + 1) + '</b>' + (s.dataset.label || '');

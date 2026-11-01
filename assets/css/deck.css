@@ -67,7 +67,9 @@ button{font-family:inherit;cursor:pointer}
 .web{width:1280px;height:1064px;transform:scale(0.625);transform-origin:top left;border:0;display:block;background:var(--slide)}
 .web--900{height:900px}
 .phone{position:relative;width:410px;height:884px;border-radius:52px;border:10px solid #262d29;background:var(--slide);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.6)}
-.phone iframe{width:390px;height:864px;border:0;display:block;background:var(--slide)}
+.phone iframe,.phone .shot-live{width:390px;height:864px;border:0;display:block;background:var(--slide)}
+.shot-live{object-fit:cover;object-position:top}
+.live .shot-live{visibility:hidden}
 .phone-wrap{width:328px;height:707px}
 .phone-wrap .phone{transform:scale(0.8);transform-origin:top left}
 .phone-wrap--pt{padding-top:40px;box-sizing:content-box}
