@@ -160,9 +160,14 @@ button{font-family:inherit;cursor:pointer}
 .toast button{height:32px;padding:0 12px;border-radius:999px;border:none;background:var(--accfg);color:var(--acc);font-weight:600;font-size:13px}
 
 /* плёнка над прототипом */
-.cover{position:absolute;inset:0;z-index:2;cursor:pointer;display:flex;align-items:flex-end;justify-content:center;padding:28px;background:transparent;transition:background .2s}
-.cover span{opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;height:56px;padding:0 26px;border-radius:999px;background:rgba(14,19,17,0.85);backdrop-filter:blur(8px);border:1px solid rgba(235,238,230,0.2);color:var(--fg);font-size:22px;font-weight:600;display:inline-flex;align-items:center;white-space:nowrap}
+.cover{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;justify-content:center;padding:28px;transition:background .2s}
+.cover__btn{opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;height:60px;padding:0 28px;border-radius:999px;background:var(--acc);border:none;color:var(--accfg);font-size:22px;font-weight:600;display:inline-flex;align-items:center;white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,0.4)}
 .cover:hover{background:rgba(14,19,17,0.18)}
-.cover:hover span{opacity:1;transform:none}
-.phone .cover span{font-size:18px;height:48px;padding:0 20px}
+.cover:hover .cover__btn{opacity:1;transform:none}
+@media (hover:none){.cover__btn{opacity:1;transform:none}}
+.phone .cover{padding:24px 20px}
+.phone .cover__btn{font-size:18px;height:50px;padding:0 20px}
+.cover__off{display:none;position:absolute;top:14px;right:14px;z-index:3;height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(235,238,230,0.25);background:rgba(14,19,17,0.85);backdrop-filter:blur(8px);color:var(--fg);font-size:16px;font-weight:600}
+.phone .cover__off{top:12px;right:12px;height:38px;font-size:14px;padding:0 12px}
 .live .cover{display:none}
+.live .cover__off{display:inline-flex;align-items:center}

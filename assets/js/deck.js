@@ -33,13 +33,18 @@
   pages.forEach(p => io.observe(p));
 
   // ---------- плёнка над встроенными прототипами: прокрутка идёт по странице,
-  // клик включает взаимодействие с прототипом; при уходе страницы с экрана плёнка возвращается
+  // прототип включается только явной кнопкой (случайный тап при свайпе ничего не делает),
+  // кнопка «Вернуться» выключает его; при уходе страницы с экрана плёнка возвращается
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => { lastScroll = Date.now(); }, { passive: true });
   doc.querySelectorAll('.frame, .phone').forEach(box => {
     if (!box.querySelector('iframe')) return;
     const c = document.createElement('div'); c.className = 'cover';
-    c.innerHTML = '<span>Нажмите, чтобы попробовать прототип</span>';
-    c.addEventListener('click', () => { box.classList.add('live'); });
-    box.appendChild(c);
+    c.innerHTML = '<button type="button" class="cover__btn">Попробовать прототип</button>';
+    c.querySelector('button').addEventListener('click', e => { e.stopPropagation(); if (Date.now() - lastScroll < 350) return; box.classList.add('live'); });
+    const off = document.createElement('button'); off.type = 'button'; off.className = 'cover__off'; off.textContent = '✕ К слайдам';
+    off.addEventListener('click', () => box.classList.remove('live'));
+    box.appendChild(c); box.appendChild(off);
   });
   const ioLive = new IntersectionObserver(entries => {
     entries.forEach(en => { if (!en.isIntersecting) en.target.querySelectorAll('.live').forEach(b => b.classList.remove('live')); });

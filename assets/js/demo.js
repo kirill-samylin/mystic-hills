@@ -376,6 +376,9 @@
 
   // клики: делегирование по data-h; data-stop останавливает всплытие до фона
   document.addEventListener('click', e => {
+    // внешние ссылки — только в новой вкладке, чтобы не уводить прототип (и рамку в презентации) на чужой сайт
+    const ext = e.target.closest('a[href^="http"]');
+    if (ext) { ext.target = '_blank'; ext.rel = 'noopener'; }
     let n = e.target;
     while (n && n !== document) {
       if (n.dataset) {
