@@ -407,7 +407,26 @@
   window.addEventListener('scroll', () => { const v = window.scrollY > window.innerHeight * 0.75; if (v !== S.scrolled) { S.scrolled = v; renderBar(); } }, { passive: true });
 
   // ---------- старт ----------
-  $('#acts').innerHTML = ACTS.map(a => '<div class="act"><div class="act__ph"><img src="' + a.img + '" alt="' + esc(a.name) + '" loading="lazy"></div><div><div class="act__n">' + a.name + '</div><div class="act__p">' + a.price + '</div></div></div>').join('');
+  $('#acts').innerHTML = '<div class="rail__pad"></div>' + ACTS.map(a => '<div class="act"><div class="act__ph"><img src="' + a.img + '" alt="' + esc(a.name) + '" loading="lazy"></div><div><div class="act__n">' + a.name + '</div><div class="act__p">' + a.price + '</div></div></div>').join('') + '<div class="rail__pad"></div>';
+
+  // На телефоне один раз, когда лента «Чем заняться» появляется на экране, слегка качаем её:
+  // подсказка, что она листается вбок. Касание отменяет анимацию.
+  function hintScroll() {
+    const el = $('#acts');
+    if (window.innerWidth > 720 || !('IntersectionObserver' in window) || document.documentElement.classList.contains('still')) return;
+    let hinted = false;
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting || hinted) return;
+      hinted = true; io.disconnect();
+      if (el.scrollLeft > 0) return;
+      const stop = () => { el.removeEventListener('touchstart', stop); clearTimeout(t1); clearTimeout(t2); };
+      el.addEventListener('touchstart', stop, { passive: true });
+      const t1 = setTimeout(() => { el.style.scrollSnapType = 'none'; el.scrollTo({ left: 56, behavior: 'smooth' }); }, 350);
+      const t2 = setTimeout(() => { el.scrollTo({ left: 0, behavior: 'smooth' }); setTimeout(() => { el.style.scrollSnapType = ''; }, 500); stop(); }, 1000);
+    }, { threshold: 0.6 });
+    io.observe(el);
+  }
+  setTimeout(hintScroll, 300);
 
   const q = new URLSearchParams(location.search);
   const embedded = window.self !== window.top || q.get('embed');

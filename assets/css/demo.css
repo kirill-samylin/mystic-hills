@@ -129,7 +129,8 @@ img{display:block}
 .fact__k{color:var(--muted);font-size:13px}
 .fact__v{font-weight:600;font-size:18px}
 
-.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 max(20px,calc((100vw - 1240px) / 2)) 8px;scrollbar-width:none}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:max(20px,calc((100vw - 1240px) / 2));padding:0 0 8px;scrollbar-width:none;scroll-behavior:smooth}
+.rail__pad{flex:none;width:max(4px,calc((100vw - 1240px) / 2 - 16px))}
 .rail::-webkit-scrollbar{display:none}
 .act{flex:none;width:clamp(220px,62vw,280px);scroll-snap-align:start;display:flex;flex-direction:column;gap:12px}
 .act__ph{aspect-ratio:3/4;border-radius:20px;overflow:hidden;background:var(--bg2)}
